@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useReveal } from "@/lib/utils";
 import type { Project } from "@/data/projects";
 
+const basePath = "/cordova-studio-web";
+
 export default function ProjectCard({ project }: { project: Project }) {
   const ref = useReveal();
 
@@ -11,11 +13,12 @@ export default function ProjectCard({ project }: { project: Project }) {
     <div ref={ref} className="fade-in group">
       <Link href={`/projects/${project.slug}`} className="block">
         <div className="img-zoom aspect-[4/3] overflow-hidden bg-light-gray">
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-charcoal/5 to-charcoal/15 transition-transform duration-700 group-hover:scale-105">
-            <span className="font-serif text-6xl font-light text-charcoal/20 md:text-8xl">
-              {project.number}
-            </span>
-          </div>
+          <img
+            src={`${basePath}${project.coverImage}`}
+            alt={project.title}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
         </div>
 
         <div className="mt-5">

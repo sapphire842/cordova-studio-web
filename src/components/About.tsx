@@ -13,11 +13,18 @@ export default function About() {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">
               About
             </p>
-            <h2 className="font-serif text-4xl leading-tight text-charcoal md:text-5xl">
+            <h2 className="mb-8 font-serif text-4xl leading-tight text-charcoal md:text-5xl">
               Omar Córdova
               <br />
               García
             </h2>
+            <div className="aspect-[3/4] max-w-sm overflow-hidden">
+              <img
+                src="/cordova-studio-web/images/headshot.jpg"
+                alt="Omar Córdova García"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
 
           <div className="flex flex-col justify-center gap-6">

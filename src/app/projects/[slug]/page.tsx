@@ -2,6 +2,8 @@ import { projects, getProject, getAllSlugs } from "@/data/projects";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+const basePath = "/cordova-studio-web";
+
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
@@ -36,9 +38,17 @@ export default async function ProjectPage({
 
   return (
     <>
-      {/* Hero banner */}
-      <section className="flex min-h-[60vh] items-end bg-charcoal pb-16 pt-32">
-        <div className="mx-auto w-full max-w-6xl px-6 lg:px-12">
+      {/* Hero banner with cover image */}
+      <section className="relative flex min-h-[60vh] items-end pb-16 pt-32">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={`${basePath}${project.coverImage}`}
+            alt={project.title}
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-12">
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.3em] text-accent">
             {project.category} · {project.location}
           </p>
@@ -71,16 +81,19 @@ export default async function ProjectPage({
             </p>
           </div>
 
-          {/* Image gallery placeholder */}
+          {/* Image gallery */}
           <div className="mb-16 grid gap-4 md:grid-cols-2">
-            {[1, 2, 3, 4].map((i) => (
+            {project.images.map((img, i) => (
               <div
                 key={i}
-                className="flex aspect-[4/3] items-center justify-center bg-light-gray"
+                className="aspect-[4/3] overflow-hidden bg-light-gray"
               >
-                <span className="text-xs uppercase tracking-widest text-muted">
-                  Project Image {i}
-                </span>
+                <img
+                  src={`${basePath}${img}`}
+                  alt={`${project.title} — Image ${i + 1}`}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>

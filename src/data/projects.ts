@@ -29,11 +29,12 @@ export const projects: Project[] = [
       "Inspired by the spirit of exploration, the design creates a workplace that feels like stepping into a living documentary. Natural materials, layered lighting, and curated display areas bring the brand's mission into the everyday experience of its team.",
     approach:
       "The space plan centers on an open café and gathering hub that anchors community life, flanked by focused work zones and collaborative studios. Exhibit-quality display cases and integrated wayfinding graphics reinforce the brand narrative throughout. Floor-to-ceiling glazing invites natural light while framing curated views of the city.",
-    coverImage: "/images/placeholder-project.jpg",
+    coverImage: "/images/projects/natgeo-hq/cover.jpg",
     images: [
-      "/images/placeholder-project.jpg",
-      "/images/placeholder-project.jpg",
-      "/images/placeholder-project.jpg",
+      "/images/projects/natgeo-hq/gallery-1.jpg",
+      "/images/projects/natgeo-hq/gallery-2.jpg",
+      "/images/projects/natgeo-hq/gallery-3.jpg",
+      "/images/projects/natgeo-hq/gallery-4.jpg",
     ],
   },
   {
@@ -51,11 +52,12 @@ export const projects: Project[] = [
       "Bridging two centuries of design: the project celebrates the existing Victorian bones while layering in contemporary comfort. Each room tells a story of respectful dialogue between old and new.",
     approach:
       "The renovation focused on four key spaces — foyer, living room, dining room, and kitchen. Walls were selectively opened to improve sightlines and natural light flow. A restrained color palette of warm neutrals lets the architecture speak, while custom millwork and curated furnishings add layers of texture and character. The kitchen was fully reimagined with a large island, integrated appliances, and a material palette that bridges the home's historic character with modern function.",
-    coverImage: "/images/placeholder-project.jpg",
+    coverImage: "/images/projects/vallejo-residence/cover.jpg",
     images: [
-      "/images/placeholder-project.jpg",
-      "/images/placeholder-project.jpg",
-      "/images/placeholder-project.jpg",
+      "/images/projects/vallejo-residence/gallery-1.jpg",
+      "/images/projects/vallejo-residence/gallery-2.jpg",
+      "/images/projects/vallejo-residence/gallery-3.jpg",
+      "/images/projects/vallejo-residence/gallery-4.jpg",
     ],
   },
   {
@@ -73,11 +75,10 @@ export const projects: Project[] = [
       "The restaurant is designed as a sensory journey: guests move from the energy of a bustling bar through layered dining zones that range from vibrant communal tables to quieter, more intimate alcoves. Every surface and material choice reinforces the culinary story.",
     approach:
       "The floor plan was organized around a central bar that acts as the social heart of the space, with dining zones radiating outward in increasing levels of intimacy. Custom branding and signage were developed alongside the interior to create a cohesive identity. Warm, directional lighting creates drama while maintaining the comfort needed for a two-hour dining experience.",
-    coverImage: "/images/placeholder-project.jpg",
+    coverImage: "/images/projects/las-palmas/cover.jpg",
     images: [
-      "/images/placeholder-project.jpg",
-      "/images/placeholder-project.jpg",
-      "/images/placeholder-project.jpg",
+      "/images/projects/las-palmas/gallery-1.jpg",
+      "/images/projects/las-palmas/gallery-2.jpg",
     ],
   },
   {
@@ -95,11 +96,11 @@ export const projects: Project[] = [
       "The design draws from the communal principles of South African living — shared courtyards, covered outdoor gathering spaces, and a material palette of local stone, timber, and woven elements. The result is a facility that feels like a village, not a hospital.",
     approach:
       "The ground-level plan is organized around a central courtyard garden that brings daylight and nature into every wing. Community spaces — dining hall, activity rooms, a small library — are positioned at intersections to encourage spontaneous interaction. Resident rooms are oriented toward garden or ocean views, with generous windows and warm, tactile finishes. Accessibility is woven seamlessly into the architecture rather than retrofitted.",
-    coverImage: "/images/placeholder-project.jpg",
+    coverImage: "/images/projects/indawo-yolwandle/cover.jpg",
     images: [
-      "/images/placeholder-project.jpg",
-      "/images/placeholder-project.jpg",
-      "/images/placeholder-project.jpg",
+      "/images/projects/indawo-yolwandle/gallery-1.jpg",
+      "/images/projects/indawo-yolwandle/gallery-2.jpg",
+      "/images/projects/indawo-yolwandle/gallery-3.jpg",
     ],
   },
 ];
