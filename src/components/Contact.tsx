@@ -4,14 +4,13 @@ import { useReveal } from "@/lib/utils";
 import { useState } from "react";
 
 export default function Contact() {
-  const ref = useReveal<HTMLElement>();
+  const ref = useReveal();
   const [submitted, setSubmitted] = useState(false);
 
   return (
     <section id="contact" className="bg-warm-white py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className="grid gap-16 lg:grid-cols-2">
-          {/* Left — info */}
           <div ref={ref} className="fade-in">
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">
               Get in Touch
@@ -57,7 +56,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — form */}
           <div>
             {submitted ? (
               <div className="flex h-full items-center justify-center">

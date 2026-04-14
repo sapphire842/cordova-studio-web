@@ -6,8 +6,8 @@ import { useEffect, useRef, type RefObject } from "react";
  * Intersection Observer hook for scroll-triggered animations.
  * Adds "visible" class when element enters the viewport.
  */
-export function useReveal<T extends HTMLElement>(): RefObject<T | null> {
-  const ref = useRef<T | null>(null);
+export function useReveal(): RefObject<HTMLDivElement | null> {
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;

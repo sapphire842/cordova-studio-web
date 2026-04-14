@@ -4,7 +4,7 @@ import { useReveal } from "@/lib/utils";
 import { services } from "@/data/services";
 
 export default function Services() {
-  const ref = useReveal<HTMLElement>();
+  const ref = useReveal();
 
   return (
     <section id="services" className="bg-charcoal py-24 lg:py-32">
@@ -18,7 +18,7 @@ export default function Services() {
           </h2>
         </div>
 
-        <div className="stagger-children grid gap-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <div
               key={service.title}

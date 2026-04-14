@@ -5,7 +5,7 @@ import { projects } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 
 export default function Portfolio() {
-  const ref = useReveal<HTMLElement>();
+  const ref = useReveal();
 
   return (
     <section id="portfolio" className="bg-warm-white py-24 lg:py-32">

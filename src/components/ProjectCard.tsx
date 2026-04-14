@@ -5,12 +5,11 @@ import { useReveal } from "@/lib/utils";
 import type { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const ref = useReveal<HTMLElement>();
+  const ref = useReveal();
 
   return (
-    <article ref={ref} className="fade-in group">
+    <div ref={ref} className="fade-in group">
       <Link href={`/projects/${project.slug}`} className="block">
-        {/* Image placeholder */}
         <div className="img-zoom aspect-[4/3] overflow-hidden bg-light-gray">
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-charcoal/5 to-charcoal/15 transition-transform duration-700 group-hover:scale-105">
             <span className="font-serif text-6xl font-light text-charcoal/20 md:text-8xl">
@@ -19,7 +18,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
 
-        {/* Info */}
         <div className="mt-5">
           <div className="flex items-baseline justify-between">
             <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-accent">
@@ -37,6 +35,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           </p>
         </div>
       </Link>
-    </article>
+    </div>
   );
 }

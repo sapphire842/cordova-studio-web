@@ -3,13 +3,12 @@
 import { useReveal } from "@/lib/utils";
 
 export default function About() {
-  const ref = useReveal<HTMLElement>();
+  const ref = useReveal();
 
   return (
     <section id="about" className="bg-warm-white py-24 lg:py-32">
       <div ref={ref} className="fade-in mx-auto max-w-6xl px-6 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-          {/* Left — heading */}
           <div>
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">
               About
@@ -21,7 +20,6 @@ export default function About() {
             </h2>
           </div>
 
-          {/* Right — text */}
           <div className="flex flex-col justify-center gap-6">
             <blockquote className="border-l-2 border-accent/40 pl-6 font-serif text-lg italic leading-relaxed text-charcoal/80">
               &ldquo;I am passionate for the arts, channeling my energy towards
