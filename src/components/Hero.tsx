@@ -2,12 +2,23 @@
 
 import { useReveal } from "@/lib/utils";
 
+const basePath = "/cordova-studio-web";
+
 export default function Hero() {
   const ref = useReveal();
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center bg-charcoal">
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/90 via-charcoal/70 to-charcoal" />
+    <section className="relative flex min-h-screen items-center justify-center bg-charcoal overflow-hidden">
+      {/* Background image with slow zoom */}
+      <img
+        src={`${basePath}/images/hero-bg.jpg`}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover animate-hero-zoom"
+      />
+
+      {/* Dark gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/50 to-charcoal/90" />
 
       <div ref={ref} className="fade-in relative z-10 px-6 text-center">
         <p className="mb-4 text-sm font-light uppercase tracking-[0.35em] text-accent">
@@ -24,7 +35,7 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
         <a href="#about" className="group flex flex-col items-center gap-2">
           <span className="text-[10px] uppercase tracking-[0.3em] text-warm-white/40 transition-colors group-hover:text-accent">
             Scroll

@@ -55,6 +55,20 @@ h1, h2, h3, h4, h5, h6 {
 .stagger-children.visible > *:nth-child(5) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
 .stagger-children.visible > *:nth-child(6) { transition-delay: 500ms; opacity: 1; transform: translateY(0); }
 
+/* Hero background slow zoom */
+@keyframes hero-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom 20s ease-in-out infinite alternate;
+}
+
 /* Image hover zoom */
 .img-zoom {
   overflow: hidden;
