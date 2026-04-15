@@ -10,15 +10,13 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-warm-white py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
-        <div className="grid gap-16 lg:grid-cols-2">
+        <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr]">
           <div ref={ref} className="fade-in">
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">
               Get in Touch
             </p>
-            <h2 className="font-serif text-4xl text-charcoal md:text-5xl">
-              Let&apos;s Create
-              <br />
-              Together
+            <h2 className="max-w-md font-serif text-4xl leading-tight text-charcoal md:text-5xl">
+              Tell us what your space needs to become.
             </h2>
             <p className="mt-6 text-sm font-light leading-relaxed text-charcoal/70">
               Whether you&apos;re reimagining a single room or designing from
@@ -56,9 +54,9 @@ export default function Contact() {
             </div>
           </div>
 
-          <div>
+          <div className="border border-charcoal/10 bg-[#eee7df] p-6 md:p-10">
             {submitted ? (
-              <div className="flex h-full items-center justify-center">
+              <div className="flex min-h-80 items-center justify-center">
                 <p className="font-serif text-xl text-charcoal">
                   Thank you — we&apos;ll be in touch.
                 </p>

@@ -12,13 +12,16 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div ref={ref} className="fade-in group">
       <Link href={`/projects/${project.slug}`} className="block">
-        <div className="img-zoom aspect-[4/3] overflow-hidden bg-light-gray">
+        <div className="img-zoom relative aspect-[4/3] overflow-hidden bg-light-gray">
           <img
             src={`${basePath}${project.coverImage}`}
             alt={project.title}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
+          <span className="absolute left-4 top-4 bg-charcoal/85 px-3 py-2 font-serif text-xl text-warm-white">
+            {project.number}
+          </span>
         </div>
 
         <div className="mt-5">
@@ -35,6 +38,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           </h3>
           <p className="mt-2 text-sm font-light leading-relaxed text-charcoal/60">
             {project.summary}
+          </p>
+          <p className="mt-4 text-[10px] font-medium uppercase tracking-[0.25em] text-charcoal transition-colors group-hover:text-accent">
+            Open Project
           </p>
         </div>
       </Link>
