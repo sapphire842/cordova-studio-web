@@ -18,7 +18,7 @@ export default function StagingServices() {
             Featured Service
           </p>
           <h2 className="font-serif text-4xl text-charcoal md:text-5xl">
-            Staging Services
+            Kitchen Remodel
           </h2>
 
           <Link

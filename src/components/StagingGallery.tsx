@@ -32,20 +32,26 @@ export default function StagingGallery({
     <>
       <div className="grid gap-5 md:grid-cols-2">
         {project.images.map((image, index) => (
-          <button
-            key={image}
-            type="button"
-            onClick={() => setSelectedImage(image)}
-            className="group aspect-[4/3] overflow-hidden bg-light-gray text-left"
-            aria-label={`Enlarge ${project.title} image ${index + 1}`}
-          >
-            <img
-              src={`${basePath}${image}`}
-              alt={`${project.title} ${project.subtitle} image ${index + 1}`}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-            />
-          </button>
+          <div key={image}>
+            <button
+              type="button"
+              onClick={() => setSelectedImage(image)}
+              className="group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left"
+              aria-label={`Enlarge ${project.title} image ${index + 1}`}
+            >
+              <img
+                src={`${basePath}${image}`}
+                alt={`${project.title} ${project.subtitle} image ${index + 1}`}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+            </button>
+            {index >= 6 && (
+              <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.25em] text-accent">
+                Renderings
+              </p>
+            )}
+          </div>
         ))}
       </div>
 
