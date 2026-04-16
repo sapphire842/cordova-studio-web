@@ -32,6 +32,7 @@ public/images/   — Static assets
 
 Deploy to Vercel, Netlify, or any Node.js host:
 
+
 ```bash
 npm run build
 npm start
