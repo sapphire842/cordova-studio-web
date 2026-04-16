@@ -21,10 +21,12 @@ Portfolio website for **Omar Córdova García** — Interior Architecture & Desi
 - `public/images/` — Static images (headshot, hero background, portfolio project images)
 
 ## GitHub Pages Configuration
-- `next.config.ts` has `output: 'export'` and `basePath: '/cordova-studio-web'`
-- All image paths in components must account for the basePath
-- Pattern: `const basePath = "/cordova-studio-web"` then `src={`${basePath}/images/...`}`
-- Check existing components (e.g. `ProjectCard.tsx`, `Hero.tsx`) for the exact pattern
+- Canonical repository: `git@github.com:sapphire842/cordova-studio-web.git`
+- Site is hosted through GitHub Pages on the custom domain `https://thecordovastudio.com/`
+- Cloudflare proxies the custom domain to GitHub Pages
+- Treat `https://thecordovastudio.com/` as the production URL root for public links, metadata, canonical URLs, and any `base_url` construction
+- Because the site now uses a custom domain root, do not construct new asset paths with the old `/cordova-studio-web` repository subpath. Prefer root-relative public asset paths such as `/images/...` for new work unless the current implementation has not yet been migrated.
+- `next.config` should remain a static export configuration for GitHub Pages deployment
 
 ## Design System
 - **Color palette:** charcoal (#1a1a1a), warm-white (#f5f0eb), accent (#c4a882)
@@ -60,7 +62,7 @@ npm run build      # Static export to out/
 
 ## Deployment
 Push to `main` triggers GitHub Actions → builds → deploys to GitHub Pages.
-Live URL: https://aijayadams.github.io/cordova-studio-web/
+Live URL: https://thecordovastudio.com/
 
 ## Stock Images
 Hero background (`hero-bg.jpg`) is from Unsplash (free license). Portfolio images are from Omar's Issuu portfolio.
