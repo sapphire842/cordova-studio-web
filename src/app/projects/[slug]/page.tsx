@@ -2,8 +2,6 @@ import { projects, getProject, getAllSlugs } from "@/data/projects";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-const basePath = "/cordova-studio-web";
-
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
@@ -42,7 +40,7 @@ export default async function ProjectPage({
       <section className="relative flex min-h-[60vh] items-end pb-16 pt-32">
         <div className="absolute inset-0 z-0">
           <img
-            src={`${basePath}${project.coverImage}`}
+            src={project.coverImage}
             alt={project.title}
             className="h-full w-full object-cover"
           />
@@ -89,7 +87,7 @@ export default async function ProjectPage({
                 className="aspect-[4/3] overflow-hidden bg-light-gray"
               >
                 <img
-                  src={`${basePath}${img}`}
+                  src={img}
                   alt={`${project.title} — Image ${i + 1}`}
                   className="h-full w-full object-cover"
                   loading="lazy"

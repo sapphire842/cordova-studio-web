@@ -2,8 +2,6 @@
 
 import { useReveal } from "@/lib/utils";
 
-const basePath = "/cordova-studio-web";
-
 export default function Hero() {
   const ref = useReveal();
 
@@ -11,7 +9,7 @@ export default function Hero() {
     <section className="relative flex min-h-screen items-center justify-center bg-charcoal overflow-hidden">
       {/* Background image with slow zoom */}
       <img
-        src={`${basePath}/images/hero-bg.jpg`}
+        src="/images/hero-bg.jpg"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover animate-hero-zoom"

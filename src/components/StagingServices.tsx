@@ -4,8 +4,6 @@ import Link from "next/link";
 import { stagingProjects } from "@/data/staging";
 import { useReveal } from "@/lib/utils";
 
-const basePath = "/cordova-studio-web";
-
 export default function StagingServices() {
   const ref = useReveal();
   const project = stagingProjects[0];
@@ -27,7 +25,7 @@ export default function StagingServices() {
           >
             <div className="img-zoom aspect-[4/3] overflow-hidden bg-light-gray">
               <img
-                src={`${basePath}${project.coverImage}`}
+                src={project.coverImage}
                 alt={`${project.title} ${project.subtitle}`}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

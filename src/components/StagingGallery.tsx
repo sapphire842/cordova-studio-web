@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import type { StagingProject } from "@/data/staging";
 
-const basePath = "/cordova-studio-web";
-
 export default function StagingGallery({
   project,
 }: {
@@ -40,7 +38,7 @@ export default function StagingGallery({
               aria-label={`Enlarge ${project.title} image ${index + 1}`}
             >
               <img
-                src={`${basePath}${image}`}
+                src={image}
                 alt={`${project.title} ${project.subtitle} image ${index + 1}`}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
@@ -70,7 +68,7 @@ export default function StagingGallery({
             Close
           </button>
           <img
-            src={`${basePath}${selectedImage}`}
+            src={selectedImage}
             alt={`${project.title} enlarged gallery image`}
             className="max-h-[86vh] max-w-full object-contain"
             onClick={(event) => event.stopPropagation()}

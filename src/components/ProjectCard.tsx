@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useReveal } from "@/lib/utils";
 import type { Project } from "@/data/projects";
 
-const basePath = "/cordova-studio-web";
-
 export default function ProjectCard({ project }: { project: Project }) {
   const ref = useReveal();
 
@@ -14,7 +12,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <Link href={`/projects/${project.slug}`} className="block">
         <div className="img-zoom aspect-[4/3] overflow-hidden bg-light-gray">
           <img
-            src={`${basePath}${project.coverImage}`}
+            src={project.coverImage}
             alt={project.title}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"

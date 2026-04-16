@@ -20,7 +20,7 @@ export default function About() {
             </h2>
             <div className="aspect-[3/4] max-w-sm overflow-hidden">
               <img
-                src="/cordova-studio-web/images/headshot.jpg"
+                src="/images/headshot.jpg"
                 alt="Omar Córdova García"
                 className="h-full w-full object-cover"
               />
