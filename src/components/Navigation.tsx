@@ -14,10 +14,10 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Services", href: "#services" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "/#about" },
+    { label: "Portfolio", href: "/#portfolio" },
+    { label: "Services", href: "/#services" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   return (
