@@ -11,7 +11,10 @@ export default function ProjectGallery({
   images: string[];
   captions?: string[];
 }) {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{
+    src: string;
+    caption?: string;
+  } | null>(null);
 
   useEffect(() => {
     if (!selectedImage) return;
@@ -36,7 +39,9 @@ export default function ProjectGallery({
           <div key={img}>
             <button
               type="button"
-              onClick={() => setSelectedImage(img)}
+              onClick={() =>
+                setSelectedImage({ src: img, caption: captions?.[i] })
+              }
               className="group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left"
               aria-label={`Enlarge ${title} image ${i + 1}`}
             >
@@ -71,11 +76,16 @@ export default function ProjectGallery({
             Close
           </button>
           <img
-            src={selectedImage}
+            src={selectedImage.src}
             alt={`${title} enlarged gallery image`}
             className="max-h-[86vh] max-w-full object-contain"
             onClick={(event) => event.stopPropagation()}
           />
+          {selectedImage.caption && (
+            <p className="absolute bottom-5 left-5 text-[10px] font-medium uppercase tracking-[0.25em] text-accent md:bottom-8 md:left-8">
+              {selectedImage.caption}
+            </p>
+          )}
         </div>
       )}
     </>
