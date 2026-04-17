@@ -103,6 +103,36 @@ export const projects: Project[] = [
       "/images/projects/indawo-yolwandle/gallery-3.jpg",
     ],
   },
+  {
+    slug: "pleasanton-kitchen-remodel",
+    number: "05",
+    title: "Kitchen Remodel",
+    location: "Pleasanton, CA",
+    category: "Residential",
+    year: "2025",
+    summary:
+      "A Pleasanton kitchen remodel staged and visualized to highlight a warm, functional, and elevated everyday gathering space.",
+    description:
+      "This Pleasanton kitchen remodel focuses on the heart of the home: a bright, welcoming space where daily routines and entertaining can feel effortless. The project pairs staged photography with supporting renderings to communicate the design direction clearly and give the client a tangible sense of the finished environment.",
+    concept:
+      "A refined kitchen environment that balances clean lines, warm finishes, and practical flow. The design direction emphasizes comfort, clarity, and a natural transition between cooking, gathering, and living.",
+    approach:
+      "The presentation combines existing staging imagery with rendered views to show both the atmosphere and the design potential of the remodel. Material warmth, lighting, storage function, and visual openness guide the overall composition, creating a kitchen that feels polished without losing everyday usability.",
+    coverImage: "/images/staging/public:images:staging:cover.JPG",
+    images: [
+      "/images/staging/public:images:staging:gallyery-1.JPG",
+      "/images/staging/public:images:staging:gallyery-2.JPG",
+      "/images/staging/public:images:staging:gallyery-3.JPG",
+      "/images/staging/public:images:staging:gallyery-4.JPG",
+      "/images/staging/public:images:staging:gallyery-5.JPG",
+      "/images/staging/public:images:staging:gallyery-6.JPG",
+      "/images/staging/public:images:staging:gallyery-7.jpeg",
+      "/images/staging/public:images:staging:gallyery-8.jpeg",
+      "/images/staging/public:images:staging:gallyery-9.jpeg",
+      "/images/staging/public:images:staging:gallyery-10.jpeg",
+      "/images/staging/public:images:staging:gallyery-11.jpeg",
+    ],
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
