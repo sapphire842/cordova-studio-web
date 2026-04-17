@@ -82,16 +82,20 @@ export default async function ProjectPage({
           {/* Image gallery */}
           <div className="mb-16 grid gap-4 md:grid-cols-2">
             {project.images.map((img, i) => (
-              <div
-                key={i}
-                className="aspect-[4/3] overflow-hidden bg-light-gray"
-              >
-                <img
-                  src={img}
-                  alt={`${project.title} — Image ${i + 1}`}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+              <div key={img}>
+                <div className="aspect-[4/3] overflow-hidden bg-light-gray">
+                  <img
+                    src={img}
+                    alt={`${project.title} — Image ${i + 1}`}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                {project.imageCaptions?.[i] && (
+                  <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.25em] text-accent">
+                    {project.imageCaptions[i]}
+                  </p>
+                )}
               </div>
             ))}
           </div>

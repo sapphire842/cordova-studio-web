@@ -11,6 +11,7 @@ export interface Project {
   approach: string;
   coverImage: string;
   images: string[];
+  imageCaptions?: string[];
 }
 
 export const projects: Project[] = [
@@ -120,6 +121,7 @@ export const projects: Project[] = [
       "The presentation combines existing staging imagery with rendered views to show both the atmosphere and the design potential of the remodel. Material warmth, lighting, storage function, and visual openness guide the overall composition, creating a kitchen that feels polished without losing everyday usability.",
     coverImage: "/images/staging/public:images:staging:cover.JPG",
     images: [
+      "/images/staging/public:images:staging:cover.JPG",
       "/images/staging/public:images:staging:gallyery-1.JPG",
       "/images/staging/public:images:staging:gallyery-2.JPG",
       "/images/staging/public:images:staging:gallyery-3.JPG",
@@ -131,6 +133,20 @@ export const projects: Project[] = [
       "/images/staging/public:images:staging:gallyery-9.jpeg",
       "/images/staging/public:images:staging:gallyery-10.jpeg",
       "/images/staging/public:images:staging:gallyery-11.jpeg",
+    ],
+    imageCaptions: [
+      "finished",
+      "finished",
+      "finished",
+      "finished",
+      "finished",
+      "finished",
+      "finished",
+      "renderings",
+      "renderings",
+      "renderings",
+      "renderings",
+      "renderings",
     ],
   },
 ];
