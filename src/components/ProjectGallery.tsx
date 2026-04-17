@@ -75,17 +75,21 @@ export default function ProjectGallery({
           >
             Close
           </button>
-          <img
-            src={selectedImage.src}
-            alt={`${title} enlarged gallery image`}
-            className="max-h-[86vh] max-w-full object-contain"
+          <div
+            className="flex max-h-[86vh] max-w-full flex-col items-start"
             onClick={(event) => event.stopPropagation()}
-          />
-          {selectedImage.caption && (
-            <p className="absolute bottom-5 left-5 text-[10px] font-medium uppercase tracking-[0.25em] text-accent md:bottom-8 md:left-8">
-              {selectedImage.caption}
-            </p>
-          )}
+          >
+            <img
+              src={selectedImage.src}
+              alt={`${title} enlarged gallery image`}
+              className="max-h-[82vh] max-w-full object-contain"
+            />
+            {selectedImage.caption && (
+              <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.25em] text-accent">
+                {selectedImage.caption}
+              </p>
+            )}
+          </div>
         </div>
       )}
     </>
