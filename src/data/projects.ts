@@ -12,6 +12,7 @@ export interface Project {
   coverImage: string;
   images: string[];
   imageCaptions?: string[];
+  pdfUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -148,6 +149,25 @@ export const projects: Project[] = [
       "renderings",
       "renderings",
     ],
+  },
+  {
+    slug: "academia-portfolio",
+    number: "06",
+    title: "Academia Portfolio",
+    location: "Portfolio",
+    category: "Academic",
+    year: "2024",
+    summary:
+      "A curated academic portfolio presented as a digital book, collecting interior architecture and design work.",
+    description:
+      "The Academia Portfolio brings together Omar Córdova García's academic interior architecture and design work in a format that preserves the feeling of paging through a printed portfolio. The presentation is intentionally simple, allowing each spread to carry the work with the same quiet editorial tone as the rest of the site.",
+    concept:
+      "A digital portfolio book that feels tactile, paced, and intentional. The viewer moves through the work one spread at a time, keeping attention on the relationship between facing pages.",
+    approach:
+      "The portfolio is presented as a two-page book viewer with left and right pages shown together on desktop and a responsive reading experience on smaller screens. Page controls create a subtle flip transition while preserving direct access to the full PDF.",
+    coverImage: "/images/academia-portfolio/cover.png",
+    images: ["/images/academia-portfolio/cover.png"],
+    pdfUrl: "/documents/academia-portfolio.pdf",
   },
 ];
 

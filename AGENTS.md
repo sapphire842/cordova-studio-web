@@ -34,12 +34,13 @@ Portfolio website for **Omar Córdova García** — Interior Architecture & Desi
 - **Aesthetic:** Minimal, editorial, architecture-firm feel. Dark hero → light content sections.
 - **Animations:** Subtle intersection-observer scroll reveals (`.fade-in` class via `useReveal` hook)
 
-## Portfolio Projects (5)
+## Portfolio Projects (6)
 1. **National Geographic HQ** (San Francisco) — Commercial HQ interior
 2. **2190 Vallejo Street Residence** (San Francisco) — Victorian residence renovation
 3. **Las Palmas Restaurant** — Restaurant interior design
 4. **Indawo Yolwandle Assisted Living Center** — South African-inspired community center
 5. **Kitchen Remodel** (Pleasanton) — Residential kitchen remodel
+6. **Academia Portfolio** — Academic interior architecture and design portfolio
 
 ## Portfolio Images
 Images are extracted from Omar's Issuu portfolio. Full-res pages from the Issuu CDN:

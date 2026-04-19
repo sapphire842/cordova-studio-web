@@ -2,6 +2,7 @@ import { projects, getProject, getAllSlugs } from "@/data/projects";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProjectGallery from "@/components/ProjectGallery";
+import PortfolioBookViewer from "@/components/PortfolioBookViewer";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -80,12 +81,19 @@ export default async function ProjectPage({
             </p>
           </div>
 
-          {/* Image gallery */}
-          <ProjectGallery
-            title={project.title}
-            images={project.images}
-            captions={project.imageCaptions}
-          />
+          {project.pdfUrl ? (
+            <PortfolioBookViewer
+              title={project.title}
+              coverImage={project.coverImage}
+              pdfUrl={project.pdfUrl}
+            />
+          ) : (
+            <ProjectGallery
+              title={project.title}
+              images={project.images}
+              captions={project.imageCaptions}
+            />
+          )}
 
           {/* Approach */}
           <div className="mb-16">

@@ -81,3 +81,35 @@ h1, h2, h3, h4, h5, h6 {
 .img-zoom:hover img {
   transform: scale(1.05);
 }
+
+@keyframes page-turn-next {
+  0% {
+    opacity: 0.35;
+    transform: perspective(1200px) rotateY(-4deg) translateX(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0deg) translateX(0);
+  }
+}
+
+@keyframes page-turn-prev {
+  0% {
+    opacity: 0.35;
+    transform: perspective(1200px) rotateY(4deg) translateX(-18px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0deg) translateX(0);
+  }
+}
+
+.animate-page-turn-next {
+  animation: page-turn-next 0.45s ease-out;
+  transform-origin: center;
+}
+
+.animate-page-turn-prev {
+  animation: page-turn-prev 0.45s ease-out;
+  transform-origin: center;
+}
