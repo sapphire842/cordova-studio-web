@@ -10,6 +10,8 @@ type PageImage = {
   src: string;
 };
 
+const firstBookPage = 2;
+
 async function renderPage(page: PDFPageProxy, targetWidth: number) {
   const viewport = page.getViewport({ scale: 1 });
   const scale = targetWidth / viewport.width;
@@ -44,7 +46,7 @@ export default function PortfolioBookViewer({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(firstBookPage);
   const [pages, setPages] = useState<(PageImage | null)[]>([null, null]);
   const [isLoading, setIsLoading] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
@@ -135,14 +137,14 @@ export default function PortfolioBookViewer({
   });
 
   const totalPages = pdf?.numPages ?? 0;
-  const canGoPrev = currentPage > 1;
+  const canGoPrev = currentPage > firstBookPage;
   const canGoNext = Boolean(pdf && currentPage + 2 <= pdf.numPages);
 
   function goPrev() {
     setCurrentPage((page) => {
-      if (page <= 1) return page;
+      if (page <= firstBookPage) return page;
       setDirection("prev");
-      return Math.max(1, page - 2);
+      return Math.max(firstBookPage, page - 2);
     });
   }
 
@@ -206,16 +208,18 @@ export default function PortfolioBookViewer({
           <div className="flex min-h-0 flex-1 flex-col">
             <div
               key={currentPage}
-              className={`grid min-h-0 flex-1 gap-3 transition-all duration-500 md:grid-cols-2 ${
+              className={`book-spread grid min-h-0 flex-1 gap-3 md:grid-cols-2 ${
                 direction === "next"
-                  ? "animate-page-turn-next"
-                  : "animate-page-turn-prev"
+                  ? "book-spread-next"
+                  : "book-spread-prev"
               }`}
             >
               {pages.map((page, index) => (
                 <div
                   key={page?.pageNumber ?? index}
-                  className="flex min-h-0 items-center justify-center bg-warm-white p-2 shadow-2xl"
+                  className={`book-page ${
+                    index === 0 ? "book-page-left" : "book-page-right"
+                  } flex min-h-0 items-center justify-center bg-warm-white p-2 shadow-2xl`}
                 >
                   {page ? (
                     <img
