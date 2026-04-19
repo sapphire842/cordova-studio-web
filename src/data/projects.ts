@@ -169,6 +169,37 @@ export const projects: Project[] = [
     images: ["/images/academia-portfolio/cover.png"],
     pdfUrl: "/documents/academia-portfolio.pdf",
   },
+  {
+    slug: "furnishing-styling",
+    number: "07",
+    title: "Furnishing & Styling",
+    location: "Bay Area, CA",
+    category: "Residential",
+    year: "2024",
+    summary:
+      "A residential furnishing and styling project shaped through layered textiles, warm finishes, and carefully balanced living spaces.",
+    description:
+      "This furnishing and styling project focuses on creating cohesive rooms that feel polished, comfortable, and personal. Furniture, textiles, lighting, and accessories are composed to bring warmth and rhythm to the home while preserving a relaxed everyday livability.",
+    concept:
+      "A soft, layered residential environment where family room and living room spaces feel connected through tone, texture, and proportion. Each room is styled to feel complete without becoming overly formal.",
+    approach:
+      "The styling approach balances larger furnishing decisions with tactile finishing details. Upholstery, accent pieces, pillows, lighting, and decorative objects are arranged to support conversation, comfort, and a calm visual flow from one space to the next.",
+    coverImage: "/images/projects/furnishing-styling/cover.jpg",
+    images: [
+      "/images/projects/furnishing-styling/cover.jpg",
+      "/images/projects/furnishing-styling/gallery-1.jpg",
+      "/images/projects/furnishing-styling/gallery-2.jpg",
+      "/images/projects/furnishing-styling/gallery-3.jpg",
+      "/images/projects/furnishing-styling/gallery-4.jpg",
+    ],
+    imageCaptions: [
+      "family room",
+      "family room",
+      "living room",
+      "living room",
+      "living room",
+    ],
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
