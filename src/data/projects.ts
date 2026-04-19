@@ -13,6 +13,8 @@ export interface Project {
   images: string[];
   imageCaptions?: string[];
   pdfUrl?: string;
+  parentSlug?: string;
+  isCollection?: boolean;
 }
 
 export const projects: Project[] = [
@@ -177,20 +179,43 @@ export const projects: Project[] = [
     category: "Residential",
     year: "2024",
     summary:
-      "A residential furnishing and styling project shaped through layered textiles, warm finishes, and carefully balanced living spaces.",
+      "A collection of residential furnishing and styling projects shaped through layered textiles, warm finishes, and carefully balanced living spaces.",
     description:
-      "This furnishing and styling project focuses on creating cohesive rooms that feel polished, comfortable, and personal. Furniture, textiles, lighting, and accessories are composed to bring warmth and rhythm to the home while preserving a relaxed everyday livability.",
+      "Furnishing & Styling brings together residential projects focused on cohesive rooms that feel polished, comfortable, and personal. Furniture, textiles, lighting, and accessories are composed to bring warmth and rhythm to each home while preserving a relaxed everyday livability.",
     concept:
-      "A soft, layered residential environment where family room and living room spaces feel connected through tone, texture, and proportion. Each room is styled to feel complete without becoming overly formal.",
+      "A soft, layered approach to residential interiors where each room feels complete without becoming overly formal. Every project is shaped around tone, texture, proportion, and the rhythms of daily life.",
     approach:
-      "The styling approach balances larger furnishing decisions with tactile finishing details. Upholstery, accent pieces, pillows, lighting, and decorative objects are arranged to support conversation, comfort, and a calm visual flow from one space to the next.",
-    coverImage: "/images/projects/furnishing-styling/cover.jpg",
+      "Each furnishing and styling project balances larger furnishing decisions with tactile finishing details. Upholstery, accent pieces, pillows, lighting, and decorative objects are arranged to support conversation, comfort, and a calm visual flow from one space to the next.",
+    coverImage:
+      "/images/projects/furnishing-styling/single-family-residence-dublin/cover.jpg",
     images: [
-      "/images/projects/furnishing-styling/cover.jpg",
-      "/images/projects/furnishing-styling/gallery-1.jpg",
-      "/images/projects/furnishing-styling/gallery-2.jpg",
-      "/images/projects/furnishing-styling/gallery-3.jpg",
-      "/images/projects/furnishing-styling/gallery-4.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/cover.jpg",
+    ],
+    isCollection: true,
+  },
+  {
+    slug: "single-family-residence-dublin",
+    number: "07.01",
+    title: "Single Family Residence - Dublin",
+    location: "Dublin, CA",
+    category: "Furnishing & Styling",
+    year: "2024",
+    summary:
+      "A single-family residence styled through warm furnishings, layered textiles, and comfortable family and living room compositions.",
+    description:
+      "Single Family Residence - Dublin focuses on furnishing and styling the home's family and living room spaces with a calm, cohesive material language. The project layers upholstery, accent pieces, pillows, lighting, and accessories to create rooms that feel considered, welcoming, and easy to live in.",
+    concept:
+      "A warm residential styling direction where the family room and living room feel connected through softness, proportion, and tactile detail.",
+    approach:
+      "The styling balances practical comfort with refined finishing touches. Furniture placement supports conversation and daily use, while textiles, accessories, and lighting add depth and visual continuity across the home.",
+    coverImage:
+      "/images/projects/furnishing-styling/single-family-residence-dublin/cover.jpg",
+    images: [
+      "/images/projects/furnishing-styling/single-family-residence-dublin/cover.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-1.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-2.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-3.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-4.jpg",
     ],
     imageCaptions: [
       "family room",
@@ -199,6 +224,7 @@ export const projects: Project[] = [
       "living room",
       "living room",
     ],
+    parentSlug: "furnishing-styling",
   },
 ];
 
@@ -208,4 +234,12 @@ export function getProject(slug: string): Project | undefined {
 
 export function getAllSlugs(): string[] {
   return projects.map((p) => p.slug);
+}
+
+export function getPortfolioProjects(): Project[] {
+  return projects.filter((project) => !project.parentSlug);
+}
+
+export function getChildProjects(parentSlug: string): Project[] {
+  return projects.filter((project) => project.parentSlug === parentSlug);
 }

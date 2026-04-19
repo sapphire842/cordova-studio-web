@@ -1,8 +1,14 @@
-import { projects, getProject, getAllSlugs } from "@/data/projects";
+import {
+  getAllSlugs,
+  getChildProjects,
+  getPortfolioProjects,
+  getProject,
+} from "@/data/projects";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProjectGallery from "@/components/ProjectGallery";
 import PortfolioBookViewer from "@/components/PortfolioBookViewer";
+import ProjectCard from "@/components/ProjectCard";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -32,9 +38,14 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   // Find adjacent projects for navigation
-  const idx = projects.findIndex((p) => p.slug === slug);
-  const prev = idx > 0 ? projects[idx - 1] : null;
-  const next = idx < projects.length - 1 ? projects[idx + 1] : null;
+  const portfolioProjects = getPortfolioProjects();
+  const idx = portfolioProjects.findIndex((p) => p.slug === slug);
+  const prev = idx > 0 ? portfolioProjects[idx - 1] : null;
+  const next =
+    idx >= 0 && idx < portfolioProjects.length - 1
+      ? portfolioProjects[idx + 1]
+      : null;
+  const childProjects = getChildProjects(project.slug);
 
   return (
     <>
@@ -81,7 +92,18 @@ export default async function ProjectPage({
             </p>
           </div>
 
-          {project.pdfUrl ? (
+          {project.isCollection ? (
+            <div className="mb-16">
+              <h2 className="mb-10 text-xs font-medium uppercase tracking-[0.3em] text-accent">
+                Projects
+              </h2>
+              <div className="grid gap-12 md:grid-cols-2">
+                {childProjects.map((childProject) => (
+                  <ProjectCard key={childProject.slug} project={childProject} />
+                ))}
+              </div>
+            </div>
+          ) : project.pdfUrl ? (
             <PortfolioBookViewer
               title={project.title}
               coverImage={project.coverImage}

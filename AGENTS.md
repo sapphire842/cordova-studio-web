@@ -41,7 +41,8 @@ Portfolio website for **Omar Córdova García** — Interior Architecture & Desi
 4. **Indawo Yolwandle Assisted Living Center** — South African-inspired community center
 5. **Kitchen Remodel** (Pleasanton) — Residential kitchen remodel
 6. **Academia Portfolio** — Academic interior architecture and design portfolio
-7. **Furnishing & Styling** — Residential furnishing and styling project
+7. **Furnishing & Styling** — Residential furnishing and styling collection
+   - **Single Family Residence - Dublin** — Furnishing and styling subproject
 
 ## Portfolio Images
 Images are extracted from Omar's Issuu portfolio. Full-res pages from the Issuu CDN:

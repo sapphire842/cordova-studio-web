@@ -1,11 +1,12 @@
 "use client";
 
 import { useReveal } from "@/lib/utils";
-import { projects } from "@/data/projects";
+import { getPortfolioProjects } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 
 export default function Portfolio() {
   const ref = useReveal();
+  const projects = getPortfolioProjects();
 
   return (
     <section id="portfolio" className="bg-warm-white py-24 lg:py-32">
