@@ -7,7 +7,7 @@ export default function Footer() {
         <p>&copy; {year} Cordova Studio. All rights reserved.</p>
         <div className="flex gap-6">
           <a
-            href="https://www.instagram.com/cordova.studio"
+            href="https://www.instagram.com/thecordovastudio"
             target="_blank"
             rel="noopener noreferrer"
             className="uppercase tracking-widest transition-colors hover:text-accent"
@@ -23,7 +23,7 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href="mailto:omar@cordova.studio"
+            href="mailto:omar@thecordovastudio.com"
             className="uppercase tracking-widest transition-colors hover:text-accent"
           >
             Email

@@ -51,8 +51,8 @@ Images are extracted from Omar's Issuu portfolio. Full-res pages from the Issuu 
 - Images are portfolio pages (contain renders + floor plans + text), not standalone photos.
 
 ## Contact & Social
-- Email: omar@cordova.studio
-- Instagram: @cordova.studio
+- Email: omar@thecordovastudio.com
+- Instagram: @thecordovastudio
 - LinkedIn: omar-cordova-garcia
 - Thumbtack: Cordova Studio, Walnut Creek CA
 - Fiverr: https://www.fiverr.com/s/WEj49BL
