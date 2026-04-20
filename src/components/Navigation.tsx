@@ -1,11 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navigation() {
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { label: "About", href: "/#about" },
@@ -15,21 +24,39 @@ export default function Navigation() {
   ];
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-[#d8c7b4]/95 shadow-md backdrop-blur-md">
-      <nav className="mx-auto flex min-h-[116px] max-w-7xl items-center justify-between px-6 py-2 lg:px-12">
+    <header
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-transparent shadow-none"
+          : "bg-[#d8c7b4]/95 shadow-md backdrop-blur-md"
+      }`}
+    >
+      <nav
+        className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 lg:px-12 ${
+          scrolled ? "min-h-20 py-4" : "min-h-[116px] py-2"
+        }`}
+      >
         <Link
           href="/"
-          className="inline-flex h-[100px] w-[133px] items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:drop-shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          className={`inline-flex items-center transition-all duration-500 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+            scrolled
+              ? "font-serif text-xl text-charcoal hover:text-accent"
+              : "h-[100px] w-[133px] justify-center hover:drop-shadow-2xl"
+          }`}
           aria-label="The Cordova Studio home"
         >
-          <Image
-            src="/images/logo.png"
-            alt="The Cordova Studio"
-            width={637}
-            height={480}
-            priority
-            className="h-full w-full object-contain"
-          />
+          {scrolled ? (
+            "The Córdova Studio"
+          ) : (
+            <Image
+              src="/images/logo.png"
+              alt="The Cordova Studio"
+              width={637}
+              height={480}
+              priority
+              className="h-full w-full object-contain"
+            />
+          )}
         </Link>
 
         {/* Desktop nav */}
@@ -38,7 +65,11 @@ export default function Navigation() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-light uppercase tracking-widest text-charcoal transition-colors hover:text-warm-white"
+                className={`text-sm font-light uppercase tracking-widest transition-colors ${
+                  scrolled
+                    ? "text-charcoal hover:text-accent"
+                    : "text-charcoal hover:text-warm-white"
+                }`}
               >
                 {link.label}
               </a>
