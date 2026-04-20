@@ -28,7 +28,7 @@ export default function Navigation() {
       className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-warm-white shadow-sm"
-          : "bg-[#d8c7b4]/95 shadow-md backdrop-blur-md"
+          : "bg-white shadow-md"
       }`}
     >
       <nav
@@ -68,7 +68,7 @@ export default function Navigation() {
                 className={`text-sm font-light uppercase tracking-widest transition-colors ${
                   scrolled
                     ? "text-charcoal hover:text-accent"
-                    : "text-charcoal hover:text-warm-white"
+                    : "text-charcoal hover:text-accent"
                 }`}
               >
                 {link.label}

@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-charcoal/10 bg-warm-white px-6 py-10 lg:px-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-xs text-muted md:flex-row">
-        <p>&copy; {year} Cordova Studio. All rights reserved.</p>
+        <p>&copy; {year} The Córdova Studio. All rights reserved.</p>
         <div className="flex gap-6">
           <a
             href="https://www.instagram.com/thecordovastudio"

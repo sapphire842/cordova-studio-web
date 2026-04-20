@@ -23,7 +23,7 @@ export default function Hero() {
           Interior Architecture &amp; Design
         </p>
         <h1 className="font-serif text-5xl font-normal leading-tight text-warm-white md:text-7xl lg:text-8xl">
-          The Cordova
+          The Córdova
           <br />
           Studio
         </h1>
