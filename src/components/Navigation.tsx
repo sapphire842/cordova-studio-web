@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Navigation() {
@@ -31,11 +32,17 @@ export default function Navigation() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
         <Link
           href="/"
-          className={`font-serif text-xl tracking-wide transition-colors ${
-            scrolled ? "text-charcoal" : "text-warm-white"
-          }`}
+          className="inline-flex h-12 w-16 items-center justify-center bg-warm-white/90 p-2 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          aria-label="The Cordova Studio home"
         >
-          The Cordova Studio
+          <Image
+            src="/images/logo.png"
+            alt="The Cordova Studio"
+            width={637}
+            height={480}
+            priority
+            className="h-full w-full object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}
