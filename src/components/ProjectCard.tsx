@@ -6,11 +6,18 @@ import type { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const ref = useReveal();
+  const hasRoundedImage =
+    project.slug === "furnishing-styling" ||
+    project.parentSlug === "furnishing-styling";
 
   return (
     <div ref={ref} className="fade-in group">
       <Link href={`/projects/${project.slug}`} className="block">
-        <div className="img-zoom aspect-[4/3] overflow-hidden bg-light-gray">
+        <div
+          className={`img-zoom aspect-[4/3] overflow-hidden bg-light-gray ${
+            hasRoundedImage ? "rounded-[6px]" : ""
+          }`}
+        >
           <img
             src={project.coverImage}
             alt={project.title}

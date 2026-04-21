@@ -6,10 +6,12 @@ export default function ProjectGallery({
   title,
   images,
   captions,
+  roundedImages = false,
 }: {
   title: string;
   images: string[];
   captions?: string[];
+  roundedImages?: boolean;
 }) {
   const [selectedImage, setSelectedImage] = useState<{
     src: string;
@@ -42,7 +44,9 @@ export default function ProjectGallery({
               onClick={() =>
                 setSelectedImage({ src: img, caption: captions?.[i] })
               }
-              className="group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left"
+              className={`group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left ${
+                roundedImages ? "rounded-[6px]" : ""
+              }`}
               aria-label={`Enlarge ${title} image ${i + 1}`}
             >
               <img
@@ -82,7 +86,9 @@ export default function ProjectGallery({
             <img
               src={selectedImage.src}
               alt={`${title} enlarged gallery image`}
-              className="max-h-[82vh] max-w-full object-contain"
+              className={`max-h-[82vh] max-w-full object-contain ${
+                roundedImages ? "rounded-[6px]" : ""
+              }`}
             />
             {selectedImage.caption && (
               <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.25em] text-accent">
