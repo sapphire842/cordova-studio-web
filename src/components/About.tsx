@@ -18,7 +18,7 @@ export default function About() {
               <br />
               García
             </h2>
-            <div className="aspect-[3/4] max-w-sm overflow-hidden rounded-[5px]">
+            <div className="aspect-[3/4] max-w-sm overflow-hidden rounded-[10px]">
               <img
                 src="/images/headshot.jpg"
                 alt="Omar Córdova García"
@@ -27,7 +27,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center gap-6">
+          <div className="flex flex-col justify-center gap-6 lg:pt-24">
             <blockquote className="border-l-2 border-accent/40 pl-6 font-serif text-lg italic leading-relaxed text-charcoal/80">
               &ldquo;I am passionate for the arts, channeling my energy towards
               the creation of aesthetically pleasing environments. My
