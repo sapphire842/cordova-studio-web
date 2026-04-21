@@ -226,6 +226,55 @@ export const projects: Project[] = [
     ],
     parentSlug: "furnishing-styling",
   },
+  {
+    slug: "single-family-residence-oakland",
+    number: "07.02",
+    title: "Single Family Residence - Oakland",
+    location: "Oakland, CA",
+    category: "Furnishing & Styling",
+    year: "2024",
+    summary:
+      "A layered Oakland residence styled through warm living spaces, a refined kitchen and dining flow, relaxed bedroom moments, a home gym, and an inviting patio.",
+    description:
+      "Single Family Residence - Oakland expands the Furnishing & Styling collection with a whole-home styling story. The project moves from living room compositions into kitchen, dining, bedroom, gym, and patio moments, keeping the presentation cohesive through warm materials, balanced furniture placement, and thoughtful finishing details.",
+    concept:
+      "A comfortable single-family residence where each room has its own function and mood while still feeling connected through softness, proportion, and natural residential warmth.",
+    approach:
+      "The styling focuses on creating continuity across multiple daily-use spaces. Furnishings, accessories, lighting, and textures are arranged to support gathering, movement, rest, wellness, and indoor-outdoor living while preserving the quiet editorial tone of the portfolio.",
+    coverImage:
+      "/images/projects/furnishing-styling/single-family-residence-oakland/cover.JPG",
+    images: [
+      "/images/projects/furnishing-styling/single-family-residence-oakland/cover.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-1.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-2.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-3.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-4.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-5.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-6.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-7.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-8.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-9.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-10.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-11.JPG",
+      "/images/projects/furnishing-styling/single-family-residence-oakland/gallery-12.JPG",
+    ],
+    imageCaptions: [
+      "living room",
+      "living room",
+      "kitchen",
+      "kitchen",
+      "dining room",
+      "bedroom",
+      "bedroom",
+      "gym",
+      "gym",
+      "gym",
+      "gym",
+      "patio",
+      "patio",
+    ],
+    parentSlug: "furnishing-styling",
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
