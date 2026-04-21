@@ -28,12 +28,12 @@ export default function Navigation() {
       className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-warm-white shadow-sm"
-          : "bg-white shadow-md"
+          : "bg-warm-white shadow-md"
       }`}
     >
       <nav
         className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 lg:px-12 ${
-          scrolled ? "min-h-[68px] py-3" : "min-h-[99px] py-2"
+          scrolled ? "min-h-[68px] py-3" : "min-h-[84px] py-2"
         }`}
       >
         <Link
@@ -41,7 +41,7 @@ export default function Navigation() {
           className={`inline-flex items-center transition-all duration-500 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
             scrolled
               ? "font-serif text-xl text-charcoal hover:text-accent"
-              : "h-[85px] w-[113px] justify-center hover:drop-shadow-2xl"
+              : "h-[72px] w-[96px] justify-center hover:drop-shadow-2xl"
           }`}
           aria-label="The Cordova Studio home"
         >
