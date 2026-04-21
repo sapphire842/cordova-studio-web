@@ -18,7 +18,7 @@ export default function About() {
               <br />
               García
             </h2>
-            <div className="aspect-[3/4] max-w-sm overflow-hidden">
+            <div className="aspect-[3/4] max-w-sm overflow-hidden rounded-[5px]">
               <img
                 src="/images/headshot.jpg"
                 alt="Omar Córdova García"
