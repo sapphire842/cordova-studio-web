@@ -387,6 +387,41 @@ export const projects: Project[] = [
     ],
     parentSlug: "staging",
   },
+  {
+    slug: "staging-miscellaneous",
+    number: "08.04",
+    title: "Miscellaneous",
+    location: "Bay Area, CA",
+    category: "Staging",
+    year: "2024",
+    summary:
+      "A miscellaneous staging collection highlighting flexible residential moments, accent spaces, and finishing details.",
+    description:
+      "The Miscellaneous staging collection gathers additional residential spaces and styled moments that support the overall story of a home. These images capture flexible rooms, transitional areas, decorative vignettes, and finishing details that help staged interiors feel complete.",
+    concept:
+      "A supporting collection of staged moments where texture, scale, and styling details bring warmth and clarity to the spaces between primary rooms.",
+    approach:
+      "Each scene is composed to feel intentional and approachable. Furniture, accessories, art, greenery, and decorative objects are used to add visual rhythm while keeping the presentation clean, cohesive, and easy to understand.",
+    coverImage: "/images/projects/staging/Miscellaneous/cover.jpeg",
+    images: [
+      "/images/projects/staging/Miscellaneous/cover.jpeg",
+      "/images/projects/staging/Miscellaneous/gallery-1.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-2.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-3.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-4.jpeg",
+      "/images/projects/staging/Miscellaneous/gallery-5.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-6.jpg",
+      "/images/projects/staging/Miscellaneous/gallery-7.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-8.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-9.jpg",
+      "/images/projects/staging/Miscellaneous/gallery-10.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-11.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-12.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-13.JPG",
+      "/images/projects/staging/Miscellaneous/gallery-14.JPG",
+    ],
+    parentSlug: "staging",
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
