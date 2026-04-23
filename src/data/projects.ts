@@ -357,6 +357,36 @@ export const projects: Project[] = [
     ],
     parentSlug: "staging",
   },
+  {
+    slug: "staging-dining-rooms",
+    number: "08.03",
+    title: "Dining Rooms",
+    location: "Bay Area, CA",
+    category: "Staging",
+    year: "2024",
+    summary:
+      "A dining room staging collection composed around warmth, proportion, and inviting gathering moments.",
+    description:
+      "The Dining Rooms staging collection presents residential dining spaces styled to feel polished, welcoming, and ready for gathering. Each image highlights the relationship between table setting, seating, lighting, art, and surrounding architectural details.",
+    concept:
+      "Dining rooms staged as memorable gathering spaces, where scale, surface styling, and visual balance help each room feel complete and intentional.",
+    approach:
+      "Each dining room is arranged to clarify the room's purpose and strengthen its focal points. Tables, chairs, rugs, lighting, artwork, greenery, and decorative accents are composed to add warmth while maintaining an open, natural flow.",
+    coverImage: "/images/projects/staging/dining rooms/cover.JPG",
+    images: [
+      "/images/projects/staging/dining rooms/cover.JPG",
+      "/images/projects/staging/dining rooms/gallery-1.png",
+      "/images/projects/staging/dining rooms/gallery-2.jpg",
+      "/images/projects/staging/dining rooms/gallery-3.JPG",
+      "/images/projects/staging/dining rooms/gallery-4.JPG",
+      "/images/projects/staging/dining rooms/gallery-5.jpeg",
+      "/images/projects/staging/dining rooms/gallery-6.JPG",
+      "/images/projects/staging/dining rooms/gallery-7.JPG",
+      "/images/projects/staging/dining rooms/gallery-8.JPG",
+      "/images/projects/staging/dining rooms/gallery-9.JPG",
+    ],
+    parentSlug: "staging",
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
