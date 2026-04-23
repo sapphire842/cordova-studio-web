@@ -48,7 +48,11 @@ export default function PortfolioBookViewer({
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [currentPage, setCurrentPage] = useState(firstBookPage);
   const [pages, setPages] = useState<(PageImage | null)[]>([null, null]);
+  const [previousPages, setPreviousPages] = useState<(PageImage | null)[] | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
   const cacheRef = useRef<Map<number, string>>(new Map());
   const pdfJsRef = useRef<PdfJs | null>(null);
@@ -105,6 +109,15 @@ export default function PortfolioBookViewer({
 
       if (!cancelled) {
         setPages([renderedPages[0] ?? null, renderedPages[1] ?? null]);
+        if (previousPages) {
+          setIsAnimating(true);
+          window.setTimeout(() => {
+            if (!cancelled) {
+              setIsAnimating(false);
+              setPreviousPages(null);
+            }
+          }, 900);
+        }
         setIsLoading(false);
       }
     }
@@ -116,7 +129,7 @@ export default function PortfolioBookViewer({
     return () => {
       cancelled = true;
     };
-  }, [currentPage, pdf]);
+  }, [currentPage, pdf, previousPages]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -144,6 +157,7 @@ export default function PortfolioBookViewer({
     setCurrentPage((page) => {
       if (page <= firstBookPage) return page;
       setDirection("prev");
+      setPreviousPages(pages);
       return Math.max(firstBookPage, page - 2);
     });
   }
@@ -152,6 +166,7 @@ export default function PortfolioBookViewer({
     setCurrentPage((page) => {
       if (!pdf || page + 2 > pdf.numPages) return page;
       setDirection("next");
+      setPreviousPages(pages);
       return page + 2;
     });
   }
@@ -207,12 +222,7 @@ export default function PortfolioBookViewer({
 
           <div className="flex min-h-0 flex-1 flex-col">
             <div
-              key={currentPage}
-              className={`book-spread grid min-h-0 flex-1 gap-3 md:grid-cols-2 ${
-                direction === "next"
-                  ? "book-spread-next"
-                  : "book-spread-prev"
-              }`}
+              className="book-spread relative grid min-h-0 flex-1 gap-3 md:grid-cols-2"
             >
               {pages.map((page, index) => (
                 <div
@@ -232,6 +242,42 @@ export default function PortfolioBookViewer({
                   )}
                 </div>
               ))}
+
+              {isAnimating && previousPages && (
+                <div className="pointer-events-none absolute inset-0 hidden md:grid md:grid-cols-2 md:gap-3">
+                  {direction === "next" ? (
+                    <>
+                      <div />
+                      <div className="book-page-turn book-page-turn-next flex min-h-0 items-center justify-center bg-warm-white p-2 shadow-2xl">
+                        {previousPages[1] ? (
+                          <img
+                            src={previousPages[1].src}
+                            alt={`${title} page ${previousPages[1].pageNumber}`}
+                            className="h-full w-full object-contain"
+                          />
+                        ) : (
+                          <div className="h-full w-full bg-light-gray" />
+                        )}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="book-page-turn book-page-turn-prev flex min-h-0 items-center justify-center bg-warm-white p-2 shadow-2xl">
+                        {previousPages[0] ? (
+                          <img
+                            src={previousPages[0].src}
+                            alt={`${title} page ${previousPages[0].pageNumber}`}
+                            className="h-full w-full object-contain"
+                          />
+                        ) : (
+                          <div className="h-full w-full bg-light-gray" />
+                        )}
+                      </div>
+                      <div />
+                    </>
+                  )}
+                </div>
+              )}
             </div>
 
             <div className="mt-5 flex items-center justify-between gap-4">

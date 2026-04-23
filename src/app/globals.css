@@ -91,42 +91,53 @@ h1, h2, h3, h4, h5, h6 {
   transform-style: preserve-3d;
 }
 
-@keyframes page-flip-next {
+@keyframes page-turn-next {
   0% {
-    box-shadow: -24px 0 48px rgb(0 0 0 / 0.24);
-    transform: rotateY(82deg);
-  }
-  45% {
+    box-shadow: -10px 0 24px rgb(0 0 0 / 0.18), -30px 24px 44px rgb(0 0 0 / 0.18);
     opacity: 1;
-    transform: rotateY(28deg);
+    transform: perspective(2400px) rotateY(0deg);
+  }
+  40% {
+    box-shadow: -30px 18px 48px rgb(0 0 0 / 0.26);
+    opacity: 1;
+    transform: perspective(2400px) rotateY(-75deg);
   }
   100% {
-    box-shadow: 0 25px 50px rgb(0 0 0 / 0.35);
-    transform: rotateY(0deg);
+    box-shadow: -8px 10px 28px rgb(0 0 0 / 0.1);
+    opacity: 0.12;
+    transform: perspective(2400px) rotateY(-165deg);
   }
 }
 
-@keyframes page-flip-prev {
+@keyframes page-turn-prev {
   0% {
-    box-shadow: 24px 0 48px rgb(0 0 0 / 0.24);
-    transform: rotateY(-82deg);
-  }
-  45% {
+    box-shadow: 10px 0 24px rgb(0 0 0 / 0.18), 30px 24px 44px rgb(0 0 0 / 0.18);
     opacity: 1;
-    transform: rotateY(-28deg);
+    transform: perspective(2400px) rotateY(0deg);
+  }
+  40% {
+    box-shadow: 30px 18px 48px rgb(0 0 0 / 0.26);
+    opacity: 1;
+    transform: perspective(2400px) rotateY(75deg);
   }
   100% {
-    box-shadow: 0 25px 50px rgb(0 0 0 / 0.35);
-    transform: rotateY(0deg);
+    box-shadow: 8px 10px 28px rgb(0 0 0 / 0.1);
+    opacity: 0.12;
+    transform: perspective(2400px) rotateY(165deg);
   }
 }
 
-.book-spread-next .book-page-right {
-  animation: page-flip-next 0.72s cubic-bezier(0.2, 0.7, 0.2, 1);
+.book-page-turn {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.book-page-turn-next {
+  animation: page-turn-next 0.9s cubic-bezier(0.2, 0.72, 0.18, 1) forwards;
   transform-origin: left center;
 }
 
-.book-spread-prev .book-page-left {
-  animation: page-flip-prev 0.72s cubic-bezier(0.2, 0.7, 0.2, 1);
+.book-page-turn-prev {
+  animation: page-turn-prev 0.9s cubic-bezier(0.2, 0.72, 0.18, 1) forwards;
   transform-origin: right center;
 }
