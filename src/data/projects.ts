@@ -290,8 +290,8 @@ export const projects: Project[] = [
       "A room-by-room staging portfolio that emphasizes comfort, proportion, and visual clarity. Each space is arranged to help potential buyers or clients understand how the room can feel, function, and flow.",
     approach:
       "The staging work focuses on balancing furniture placement, textiles, accessories, light, and scale. Each room is presented with a calm, cohesive tone that supports the architecture while helping the space feel complete and livable.",
-    coverImage: "/images/projects/staging/bedrooms/cover.JPG",
-    images: ["/images/projects/staging/bedrooms/cover.JPG"],
+    coverImage: "/images/projects/staging/living & family rooms/cover.jpeg",
+    images: ["/images/projects/staging/living & family rooms/cover.jpeg"],
     isCollection: true,
   },
   {
@@ -325,6 +325,35 @@ export const projects: Project[] = [
       "/images/projects/staging/bedrooms/gallery-11.JPG",
       "/images/projects/staging/bedrooms/gallery-12.JPG",
       "/images/projects/staging/bedrooms/gallery-13.JPG",
+    ],
+    parentSlug: "staging",
+  },
+  {
+    slug: "staging-living-family-rooms",
+    number: "08.02",
+    title: "Living & Family Rooms",
+    location: "Bay Area, CA",
+    category: "Staging",
+    year: "2024",
+    summary:
+      "A living and family room staging collection arranged around comfort, conversation, and inviting everyday flow.",
+    description:
+      "The Living & Family Rooms staging collection presents gathered residential spaces styled to feel comfortable, polished, and easy to imagine using. Each room balances seating, textiles, tables, art, lighting, and accessories to create a warm first impression.",
+    concept:
+      "Living spaces staged as approachable gathering rooms, where layout, scale, softness, and finishing details help each room feel welcoming and complete.",
+    approach:
+      "Each space is composed to support conversation and visual clarity. Furniture placement anchors the room, while pillows, throws, artwork, greenery, and decorative objects add texture and warmth without overwhelming the architecture.",
+    coverImage: "/images/projects/staging/living & family rooms/cover.jpeg",
+    images: [
+      "/images/projects/staging/living & family rooms/cover.jpeg",
+      "/images/projects/staging/living & family rooms/gallery-1.jpeg",
+      "/images/projects/staging/living & family rooms/gallery-2.jpeg",
+      "/images/projects/staging/living & family rooms/gallery-3.JPG",
+      "/images/projects/staging/living & family rooms/gallery-4.jpeg",
+      "/images/projects/staging/living & family rooms/gallery-5.JPG",
+      "/images/projects/staging/living & family rooms/gallery-6.JPG",
+      "/images/projects/staging/living & family rooms/gallery-7.JPG",
+      "/images/projects/staging/living & family rooms/gallery-8.JPG",
     ],
     parentSlug: "staging",
   },
