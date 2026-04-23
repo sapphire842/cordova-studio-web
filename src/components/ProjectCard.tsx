@@ -6,16 +6,21 @@ import type { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const ref = useReveal();
-  const hasRoundedImage =
+  const imageRadiusClass =
+    project.slug === "staging" || project.parentSlug === "staging"
+      ? "rounded-[5px]"
+      : "";
+  const hasFurnishingRoundedImage =
     project.slug === "furnishing-styling" ||
     project.parentSlug === "furnishing-styling";
+  const roundedImageClass = imageRadiusClass || (hasFurnishingRoundedImage ? "rounded-[6px]" : "");
 
   return (
     <div ref={ref} className="fade-in group">
       <Link href={`/projects/${project.slug}`} className="block">
         <div
           className={`img-zoom aspect-[4/3] overflow-hidden bg-light-gray ${
-            hasRoundedImage ? "rounded-[6px]" : ""
+            roundedImageClass
           }`}
         >
           <img

@@ -114,7 +114,13 @@ export default async function ProjectPage({
               title={project.title}
               images={project.images}
               captions={project.imageCaptions}
-              roundedImages={project.parentSlug === "furnishing-styling"}
+              imageRadius={
+                project.parentSlug === "staging"
+                  ? "5px"
+                  : project.parentSlug === "furnishing-styling"
+                    ? "6px"
+                    : undefined
+              }
             />
           )}
 

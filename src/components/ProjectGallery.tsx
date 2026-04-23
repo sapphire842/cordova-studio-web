@@ -6,12 +6,12 @@ export default function ProjectGallery({
   title,
   images,
   captions,
-  roundedImages = false,
+  imageRadius,
 }: {
   title: string;
   images: string[];
   captions?: string[];
-  roundedImages?: boolean;
+  imageRadius?: "5px" | "6px";
 }) {
   const [selectedImage, setSelectedImage] = useState<{
     src: string;
@@ -45,7 +45,11 @@ export default function ProjectGallery({
                 setSelectedImage({ src: img, caption: captions?.[i] })
               }
               className={`group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left ${
-                roundedImages ? "rounded-[6px]" : ""
+                imageRadius === "5px"
+                  ? "rounded-[5px]"
+                  : imageRadius === "6px"
+                    ? "rounded-[6px]"
+                    : ""
               }`}
               aria-label={`Enlarge ${title} image ${i + 1}`}
             >
@@ -87,7 +91,11 @@ export default function ProjectGallery({
               src={selectedImage.src}
               alt={`${title} enlarged gallery image`}
               className={`max-h-[82vh] max-w-full object-contain ${
-                roundedImages ? "rounded-[6px]" : ""
+                imageRadius === "5px"
+                  ? "rounded-[5px]"
+                  : imageRadius === "6px"
+                    ? "rounded-[6px]"
+                    : ""
               }`}
             />
             {selectedImage.caption && (

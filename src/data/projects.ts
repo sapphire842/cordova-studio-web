@@ -275,6 +275,59 @@ export const projects: Project[] = [
     ],
     parentSlug: "furnishing-styling",
   },
+  {
+    slug: "staging",
+    number: "08",
+    title: "Staging",
+    location: "Bay Area, CA",
+    category: "Residential",
+    year: "2024",
+    summary:
+      "A collection of staged residential spaces composed to highlight warmth, scale, flow, and everyday livability.",
+    description:
+      "Staging brings together residential rooms styled to help each home feel inviting, balanced, and ready to be experienced. The collection is organized by room type so visitors can move through dining rooms, living and family rooms, bedrooms, and miscellaneous spaces with a clear editorial rhythm.",
+    concept:
+      "A room-by-room staging portfolio that emphasizes comfort, proportion, and visual clarity. Each space is arranged to help potential buyers or clients understand how the room can feel, function, and flow.",
+    approach:
+      "The staging work focuses on balancing furniture placement, textiles, accessories, light, and scale. Each room is presented with a calm, cohesive tone that supports the architecture while helping the space feel complete and livable.",
+    coverImage: "/images/projects/staging/bedrooms/cover.JPG",
+    images: ["/images/projects/staging/bedrooms/cover.JPG"],
+    isCollection: true,
+  },
+  {
+    slug: "staging-bedrooms",
+    number: "08.01",
+    title: "Bedrooms",
+    location: "Bay Area, CA",
+    category: "Staging",
+    year: "2024",
+    summary:
+      "A bedroom staging collection shaped around calm composition, soft textiles, and approachable residential warmth.",
+    description:
+      "The Bedrooms staging collection presents restful residential rooms composed to feel polished, inviting, and easy to imagine living in. Each image highlights a considered balance of bedding, furniture, artwork, lighting, and accessories.",
+    concept:
+      "Bedroom spaces staged as quiet retreats, using softness, scale, and simple finishing details to create a welcoming first impression.",
+    approach:
+      "Each bedroom is styled to support a clear focal point while keeping the room open and approachable. Layered bedding, accent pillows, side tables, art, and decor are used to add warmth without overwhelming the space.",
+    coverImage: "/images/projects/staging/bedrooms/cover.JPG",
+    images: [
+      "/images/projects/staging/bedrooms/cover.JPG",
+      "/images/projects/staging/bedrooms/gallery-1.JPG",
+      "/images/projects/staging/bedrooms/gallery-2.JPG",
+      "/images/projects/staging/bedrooms/gallery-3.jpeg",
+      "/images/projects/staging/bedrooms/gallery-4.jpeg",
+      "/images/projects/staging/bedrooms/gallery-5.JPG",
+      "/images/projects/staging/bedrooms/gallery-6.jpeg",
+      "/images/projects/staging/bedrooms/gallery-7.jpeg",
+      "/images/projects/staging/bedrooms/gallery-8.JPG",
+      "/images/projects/staging/bedrooms/gallery-9.JPG",
+      "/images/projects/staging/bedrooms/gallery-10.JPG",
+      "/images/projects/staging/bedrooms/gallery-11.JPG",
+      "/images/projects/staging/bedrooms/gallery-12.JPG",
+      "/images/projects/staging/bedrooms/gallery-13.JPG",
+    ],
+    parentSlug: "staging",
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
