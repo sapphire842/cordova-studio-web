@@ -36,6 +36,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
+  const hasCoverImage = Boolean(project.coverImage);
 
   // Find adjacent projects for navigation
   const portfolioProjects = getPortfolioProjects();
@@ -52,22 +53,36 @@ export default async function ProjectPage({
       {/* Hero banner with cover image */}
       <section className="relative flex min-h-[60vh] items-end pb-16 pt-32">
         <div className="absolute inset-0 z-0">
-          <img
-            src={project.coverImage}
-            alt={project.title}
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
+          {project.coverImage ? (
+            <>
+              <img
+                src={project.coverImage}
+                alt={project.title}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
+            </>
+          ) : (
+            <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(181,131,105,0.25),_transparent_45%),linear-gradient(135deg,_#f4ede3,_#e6dac9)]" />
+          )}
         </div>
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-12">
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.3em] text-accent">
             {project.category} · {project.location}
           </p>
           <div className="flex items-end gap-6">
-            <span className="font-serif text-7xl font-light text-warm-white/20 md:text-9xl">
+            <span
+              className={`font-serif text-7xl font-light md:text-9xl ${
+                hasCoverImage ? "text-warm-white/20" : "text-charcoal/10"
+              }`}
+            >
               {project.number}
             </span>
-            <h1 className="font-serif text-4xl leading-tight text-warm-white md:text-6xl">
+            <h1
+              className={`font-serif text-4xl leading-tight md:text-6xl ${
+                hasCoverImage ? "text-warm-white" : "text-charcoal"
+              }`}
+            >
               {project.title}
             </h1>
           </div>

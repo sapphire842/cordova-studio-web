@@ -15,6 +15,7 @@ export interface Project {
   pdfUrl?: string;
   parentSlug?: string;
   isCollection?: boolean;
+  placeholderLabel?: string;
 }
 
 export const projects: Project[] = [
@@ -110,7 +111,7 @@ export const projects: Project[] = [
   {
     slug: "pleasanton-kitchen-remodel",
     number: "05",
-    title: "Kitchen Remodel",
+    title: "Renovations & Transformations",
     location: "Pleasanton, CA",
     category: "Residential",
     year: "2025",
@@ -153,8 +154,27 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "academia-portfolio",
+    slug: "space-planning",
     number: "06",
+    title: "Space Planning",
+    location: "Bay Area, CA",
+    category: "Residential",
+    year: "2026",
+    summary:
+      "A forthcoming collection focused on layout strategy, circulation, and thoughtful spatial planning for everyday living.",
+    description:
+      "This upcoming Space Planning section will feature projects centered on layout studies, circulation improvements, and room-by-room planning strategies. For now, the section serves as a preview of work in development and will be updated as drawings, renderings, and supporting visuals become available.",
+    concept:
+      "A planning-first approach that helps each home feel more intuitive, functional, and balanced before material selections and final styling are introduced.",
+    approach:
+      "Future case studies will highlight how furniture plans, zoning, movement paths, and proportional relationships shape the experience of a space. The goal is to show how thoughtful planning can unlock clarity, comfort, and better day-to-day use.",
+    coverImage: "",
+    images: [],
+    placeholderLabel: "Under Construction",
+  },
+  {
+    slug: "academia-portfolio",
+    number: "07",
     title: "Academia Portfolio",
     location: "Portfolio",
     category: "Academic",
@@ -173,7 +193,7 @@ export const projects: Project[] = [
   },
   {
     slug: "furnishing-styling",
-    number: "07",
+    number: "08",
     title: "Furnishing & Styling",
     location: "Bay Area, CA",
     category: "Residential",
@@ -195,7 +215,7 @@ export const projects: Project[] = [
   },
   {
     slug: "single-family-residence-dublin",
-    number: "07.01",
+    number: "08.01",
     title: "Single Family Residence - Dublin",
     location: "Dublin, CA",
     category: "Furnishing & Styling",
@@ -228,7 +248,7 @@ export const projects: Project[] = [
   },
   {
     slug: "single-family-residence-oakland",
-    number: "07.02",
+    number: "08.02",
     title: "Single Family Residence - Oakland",
     location: "Oakland, CA",
     category: "Furnishing & Styling",
@@ -277,7 +297,7 @@ export const projects: Project[] = [
   },
   {
     slug: "staging",
-    number: "08",
+    number: "09",
     title: "Staging",
     location: "Bay Area, CA",
     category: "Residential",
@@ -296,7 +316,7 @@ export const projects: Project[] = [
   },
   {
     slug: "staging-bedrooms",
-    number: "08.01",
+    number: "09.01",
     title: "Bedrooms",
     location: "Bay Area, CA",
     category: "Staging",
@@ -330,7 +350,7 @@ export const projects: Project[] = [
   },
   {
     slug: "staging-living-family-rooms",
-    number: "08.02",
+    number: "09.02",
     title: "Living & Family Rooms",
     location: "Bay Area, CA",
     category: "Staging",
@@ -359,7 +379,7 @@ export const projects: Project[] = [
   },
   {
     slug: "staging-dining-rooms",
-    number: "08.03",
+    number: "09.03",
     title: "Dining Rooms",
     location: "Bay Area, CA",
     category: "Staging",
@@ -389,7 +409,7 @@ export const projects: Project[] = [
   },
   {
     slug: "staging-miscellaneous",
-    number: "08.04",
+    number: "09.04",
     title: "Miscellaneous",
     location: "Bay Area, CA",
     category: "Staging",

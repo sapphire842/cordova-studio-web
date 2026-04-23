@@ -36,38 +36,55 @@ export default function ProjectGallery({
 
   return (
     <>
-      <div className="mb-16 grid gap-4 md:grid-cols-2">
-        {images.map((img, i) => (
-          <div key={img}>
-            <button
-              type="button"
-              onClick={() =>
-                setSelectedImage({ src: img, caption: captions?.[i] })
-              }
-              className={`group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left ${
-                imageRadius === "5px"
-                  ? "rounded-[5px]"
-                  : imageRadius === "6px"
-                    ? "rounded-[6px]"
-                    : ""
-              }`}
-              aria-label={`Enlarge ${title} image ${i + 1}`}
-            >
-              <img
-                src={img}
-                alt={`${title} — Image ${i + 1}`}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-            </button>
-            {captions?.[i] && (
-              <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.25em] text-accent">
-                {captions[i]}
-              </p>
-            )}
+      {images.length > 0 ? (
+        <div className="mb-16 grid gap-4 md:grid-cols-2">
+          {images.map((img, i) => (
+            <div key={img}>
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectedImage({ src: img, caption: captions?.[i] })
+                }
+                className={`group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left ${
+                  imageRadius === "5px"
+                    ? "rounded-[5px]"
+                    : imageRadius === "6px"
+                      ? "rounded-[6px]"
+                      : ""
+                }`}
+                aria-label={`Enlarge ${title} image ${i + 1}`}
+              >
+                <img
+                  src={img}
+                  alt={`${title} — Image ${i + 1}`}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </button>
+              {captions?.[i] && (
+                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.25em] text-accent">
+                  {captions[i]}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="mb-16 flex aspect-[16/9] items-center justify-center rounded-[6px] bg-[radial-gradient(circle_at_top,_rgba(181,131,105,0.18),_transparent_52%),linear-gradient(135deg,_#f6f0e7,_#ece3d6)] p-8 text-center">
+          <div className="max-w-xl">
+            <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-accent">
+              Under Construction
+            </p>
+            <h3 className="mt-4 font-serif text-3xl text-charcoal">
+              Imagery coming soon
+            </h3>
+            <p className="mt-4 text-sm font-light leading-relaxed text-charcoal/70">
+              This section is being prepared and will be updated once project
+              visuals are ready to share.
+            </p>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
 
       {selectedImage && (
         <div

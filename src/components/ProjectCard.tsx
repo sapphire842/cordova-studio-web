@@ -23,12 +23,25 @@ export default function ProjectCard({ project }: { project: Project }) {
             roundedImageClass
           }`}
         >
-          <img
-            src={project.coverImage}
-            alt={project.title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-          />
+          {project.coverImage ? (
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(181,131,105,0.22),_transparent_55%),linear-gradient(135deg,_#f6f0e7,_#ebe1d3)] p-8 text-center">
+              <div>
+                <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-accent">
+                  {project.placeholderLabel ?? "Coming Soon"}
+                </p>
+                <p className="mt-4 font-serif text-2xl text-charcoal/80">
+                  {project.title}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="mt-5">

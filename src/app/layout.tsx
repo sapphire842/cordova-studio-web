@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Cordova Studio — Interior Architecture & Design",
+  title: "The Córdova Studio — Interior Architecture & Design",
   description:
     "Timeless interior design rooted in natural aesthetics. Space planning, design consultations, and full home design in the San Francisco Bay Area.",
   keywords: [
@@ -14,15 +14,15 @@ export const metadata: Metadata = {
     "Walnut Creek",
     "San Francisco",
     "space planning",
-    "Cordova Studio",
+    "The Córdova Studio",
     "Omar Córdova García",
   ],
   openGraph: {
-    title: "Cordova Studio — Interior Architecture & Design",
+    title: "The Córdova Studio — Interior Architecture & Design",
     description:
       "Timeless interior design rooted in natural aesthetics.",
-    url: "https://cordova.studio",
-    siteName: "Cordova Studio",
+    url: "https://thecordovastudio.com",
+    siteName: "The Córdova Studio",
     locale: "en_US",
     type: "website",
   },
