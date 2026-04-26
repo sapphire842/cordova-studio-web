@@ -1,11 +1,55 @@
 "use client";
 
+import type {
+  ChangeEvent,
+  FormEvent,
+  FormEventHandler,
+  InvalidEvent,
+} from "react";
 import { useReveal } from "@/lib/utils";
 
 const contactEmail = "omar@thecordovastudio.com";
+const requiredMessage = "Please enter your response.";
+const fileLimitMessage = "Please upload up to five files.";
+
+function handleInvalid(
+  event: InvalidEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+) {
+  event.currentTarget.setCustomValidity(requiredMessage);
+}
+
+function clearValidation(
+  event: FormEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+) {
+  event.currentTarget.setCustomValidity("");
+}
 
 export default function Contact() {
   const ref = useReveal();
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const input = event.currentTarget;
+    input.setCustomValidity("");
+
+    if (input.files && input.files.length > 5) {
+      input.setCustomValidity(fileLimitMessage);
+      input.reportValidity();
+      input.value = "";
+    }
+  };
+
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    const attachment = event.currentTarget.elements.namedItem("attachment[]");
+
+    if (
+      attachment instanceof HTMLInputElement &&
+      attachment.files &&
+      attachment.files.length > 5
+    ) {
+      event.preventDefault();
+      attachment.setCustomValidity(fileLimitMessage);
+      attachment.reportValidity();
+    }
+  };
 
   return (
     <section id="contact" className="bg-warm-white py-24 lg:py-32">
@@ -62,6 +106,7 @@ export default function Contact() {
               method="POST"
               encType="multipart/form-data"
               className="space-y-6"
+              onSubmit={handleSubmit}
             >
               <input
                 type="hidden"
@@ -93,6 +138,8 @@ export default function Contact() {
                   name="name"
                   type="text"
                   required
+                  onInvalid={handleInvalid}
+                  onInput={clearValidation}
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
@@ -109,6 +156,8 @@ export default function Contact() {
                   type="email"
                   autoComplete="email"
                   required
+                  onInvalid={handleInvalid}
+                  onInput={clearValidation}
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
@@ -124,6 +173,9 @@ export default function Contact() {
                   name="phone"
                   type="tel"
                   autoComplete="tel"
+                  required
+                  onInvalid={handleInvalid}
+                  onInput={clearValidation}
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
@@ -140,6 +192,8 @@ export default function Contact() {
                   type="text"
                   autoComplete="street-address"
                   required
+                  onInvalid={handleInvalid}
+                  onInput={clearValidation}
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
@@ -155,6 +209,8 @@ export default function Contact() {
                   name="service_interested_in"
                   required
                   defaultValue=""
+                  onInvalid={handleInvalid}
+                  onInput={clearValidation}
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 >
                   <option value="" disabled>
@@ -179,7 +235,6 @@ export default function Contact() {
                   id="timeline"
                   name="timeline"
                   type="text"
-                  required
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
@@ -194,7 +249,6 @@ export default function Contact() {
                   id="estimated-budget"
                   name="estimated_budget"
                   type="text"
-                  required
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
@@ -210,6 +264,8 @@ export default function Contact() {
                   name="message"
                   rows={4}
                   required
+                  onInvalid={handleInvalid}
+                  onInput={clearValidation}
                   className="w-full resize-none border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
@@ -218,13 +274,15 @@ export default function Contact() {
                   htmlFor="attachment"
                   className="mb-2 block text-xs uppercase tracking-widest text-muted"
                 >
-                  Upload inspiration, plans, or photos
+                  Upload up to five inspiration images, plans, or PDFs
                 </label>
                 <input
                   id="attachment"
-                  name="attachment"
+                  name="attachment[]"
                   type="file"
-                  accept="image/*,.pdf"
+                  accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf"
+                  multiple
+                  onChange={handleFileChange}
                   className="w-full cursor-pointer border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal file:mr-5 file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:file:bg-accent focus:outline-none"
                 />
               </div>
