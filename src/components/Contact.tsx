@@ -33,7 +33,7 @@ function formatFileSize(bytes: number) {
 
 export default function Contact() {
   const ref = useReveal();
-  const [visibleAttachmentCount, setVisibleAttachmentCount] = useState(1);
+  const [visibleAttachmentFields, setVisibleAttachmentFields] = useState([1]);
   const [selectedAttachments, setSelectedAttachments] = useState<
     Record<number, { name: string; size: number }>
   >({});
@@ -90,13 +90,22 @@ export default function Contact() {
       delete next[fieldNumber];
       return next;
     });
+    setVisibleAttachmentFields((current) => {
+      if (current.length === 1) return current;
+      return current.filter((visibleField) => visibleField !== fieldNumber);
+    });
     validateUploads(input.form as HTMLFormElement);
   };
 
   const addAttachmentSlot = () => {
-    setVisibleAttachmentCount((current) =>
-      Math.min(current + 1, maxAttachmentCount)
-    );
+    setVisibleAttachmentFields((current) => {
+      const nextField = Array.from(
+        { length: maxAttachmentCount },
+        (_, index) => index + 1
+      ).find((fieldNumber) => !current.includes(fieldNumber));
+
+      return nextField ? [...current, nextField] : current;
+    });
   };
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
@@ -344,10 +353,7 @@ export default function Contact() {
                     {formatFileSize(maxTotalUploadSize)} selected
                   </p>
                 </div>
-                {Array.from(
-                  { length: visibleAttachmentCount },
-                  (_, index) => index + 1
-                ).map((fieldNumber) => (
+                {visibleAttachmentFields.map((fieldNumber) => (
                   <div key={fieldNumber}>
                     <input
                       aria-label={`Attachment ${fieldNumber}`}
@@ -369,7 +375,7 @@ export default function Contact() {
                     ) : null}
                   </div>
                 ))}
-                {visibleAttachmentCount < maxAttachmentCount ? (
+                {visibleAttachmentFields.length < maxAttachmentCount ? (
                   <button
                     type="button"
                     onClick={addAttachmentSlot}
