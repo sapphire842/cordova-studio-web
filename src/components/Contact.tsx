@@ -10,7 +10,9 @@ import { useReveal } from "@/lib/utils";
 
 const contactEmail = "omar@thecordovastudio.com";
 const requiredMessage = "Please enter your response.";
-const fileLimitMessage = "Please upload up to five files.";
+const maxTotalUploadSize = 10 * 1024 * 1024;
+const fileLimitMessage = "Please upload up to five files totaling 10 MB or less.";
+const attachmentFields = Array.from({ length: 5 }, (_, index) => index + 1);
 
 function handleInvalid(
   event: InvalidEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -26,28 +28,34 @@ function clearValidation(
 
 export default function Contact() {
   const ref = useReveal();
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const input = event.currentTarget;
-    input.setCustomValidity("");
 
-    if (input.files && input.files.length > 5) {
-      input.setCustomValidity(fileLimitMessage);
-      input.reportValidity();
-      input.value = "";
-    }
+  const validateUploads = (form: HTMLFormElement) => {
+    const uploadInputs = Array.from(
+      form.querySelectorAll<HTMLInputElement>("[data-file-upload]")
+    );
+    const totalSize = uploadInputs.reduce((total, input) => {
+      const file = input.files?.[0];
+      return total + (file?.size ?? 0);
+    }, 0);
+    const isValid = totalSize <= maxTotalUploadSize;
+
+    uploadInputs.forEach((input) => {
+      input.setCustomValidity(isValid ? "" : fileLimitMessage);
+    });
+
+    return { isValid, uploadInputs };
+  };
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    validateUploads(event.currentTarget.form as HTMLFormElement);
   };
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    const attachment = event.currentTarget.elements.namedItem("attachment[]");
+    const { isValid, uploadInputs } = validateUploads(event.currentTarget);
 
-    if (
-      attachment instanceof HTMLInputElement &&
-      attachment.files &&
-      attachment.files.length > 5
-    ) {
+    if (!isValid) {
       event.preventDefault();
-      attachment.setCustomValidity(fileLimitMessage);
-      attachment.reportValidity();
+      uploadInputs.find((input) => input.files?.[0])?.reportValidity();
     }
   };
 
@@ -269,22 +277,27 @@ export default function Contact() {
                   className="w-full resize-none border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
-              <div>
-                <label
-                  htmlFor="attachment"
-                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                >
-                  Upload up to five inspiration images, plans, or PDFs
-                </label>
-                <input
-                  id="attachment"
-                  name="attachment[]"
-                  type="file"
-                  accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf"
-                  multiple
-                  onChange={handleFileChange}
-                  className="w-full cursor-pointer border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal file:mr-5 file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:file:bg-accent focus:outline-none"
-                />
+              <div className="space-y-3">
+                <div>
+                  <p className="mb-2 text-xs uppercase tracking-widest text-muted">
+                    Upload up to five inspiration images, plans, or PDFs
+                  </p>
+                  <p className="text-xs font-light leading-relaxed text-charcoal/60">
+                    PNG, JPG, JPEG, or PDF. Maximum 10 MB total.
+                  </p>
+                </div>
+                {attachmentFields.map((fieldNumber) => (
+                  <input
+                    key={fieldNumber}
+                    aria-label={`Attachment ${fieldNumber}`}
+                    name={`attachment_${fieldNumber}`}
+                    type="file"
+                    accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf"
+                    data-file-upload
+                    onChange={handleFileChange}
+                    className="w-full cursor-pointer border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal file:mr-5 file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:file:bg-accent focus:outline-none"
+                  />
+                ))}
               </div>
               <button
                 type="submit"
