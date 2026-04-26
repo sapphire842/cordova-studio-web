@@ -53,7 +53,7 @@ export default function Contact() {
                 </a>
               </div>
               <p className="text-xs tracking-wide text-muted">
-                Walnut Creek, CA · Serving the SF Bay Area
+                Walnut Creek, CA · Serving the San Francisco Bay Area
               </p>
             </div>
           </div>
