@@ -11,7 +11,6 @@ import { useReveal } from "@/lib/utils";
 
 const contactEmail = "omar@thecordovastudio.com";
 const formSubmitUrl = `https://formsubmit.co/${contactEmail}`;
-const formSubmitAjaxUrl = `https://formsubmit.co/ajax/${contactEmail}`;
 const requiredMessage = "Please enter your response.";
 const maxTotalUploadSize = 10 * 1024 * 1024;
 const fileLimitMessage = "Please upload up to five files totaling 10 MB or less.";
@@ -50,7 +49,6 @@ export default function Contact() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [sendCopy, setSendCopy] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
   const [visibleAttachmentFields, setVisibleAttachmentFields] = useState([1]);
   const [selectedAttachments, setSelectedAttachments] = useState<
     Record<number, { name: string; size: number }>
@@ -131,39 +129,17 @@ export default function Contact() {
     setPhoneNumber(formatPhoneNumber(event.currentTarget.value));
   };
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault();
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     const form = event.currentTarget;
     const { isValid, uploadInputs } = validateUploads(form);
 
     if (!isValid) {
+      event.preventDefault();
       uploadInputs.find((input) => input.files?.[0])?.reportValidity();
       return;
     }
 
     setIsSubmitting(true);
-    setSubmitError("");
-
-    try {
-      const response = await fetch(formSubmitAjaxUrl, {
-        method: "POST",
-        body: new FormData(form),
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("FormSubmit request failed.");
-      }
-
-      window.location.href = "/thank-you";
-    } catch {
-      setIsSubmitting(false);
-      setSubmitError(
-        "Something went wrong while sending your message. Please try again."
-      );
-    }
   };
 
   return (
@@ -453,11 +429,6 @@ export default function Contact() {
                   </button>
                 ) : null}
               </div>
-              {submitError ? (
-                <p className="text-sm font-semibold leading-relaxed text-red-700">
-                  {submitError}
-                </p>
-              ) : null}
               <button
                 type="submit"
                 disabled={isSubmitting}
