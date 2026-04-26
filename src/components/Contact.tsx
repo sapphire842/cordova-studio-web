@@ -10,6 +10,8 @@ import { useState } from "react";
 import { useReveal } from "@/lib/utils";
 
 const contactEmail = "omar@thecordovastudio.com";
+const formSubmitUrl = `https://formsubmit.co/${contactEmail}`;
+const formSubmitAjaxUrl = `https://formsubmit.co/ajax/${contactEmail}`;
 const requiredMessage = "Please enter your response.";
 const maxTotalUploadSize = 10 * 1024 * 1024;
 const fileLimitMessage = "Please upload up to five files totaling 10 MB or less.";
@@ -31,10 +33,24 @@ function formatFileSize(bytes: number) {
   return `${(bytes / 1024 / 1024).toFixed(bytes > 0 ? 1 : 0)} MB`;
 }
 
+function formatPhoneNumber(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+  const parts = [
+    digits.slice(0, 3),
+    digits.slice(3, 6),
+    digits.slice(6, 10),
+  ].filter(Boolean);
+
+  return parts.join(".");
+}
+
 export default function Contact() {
   const ref = useReveal();
   const [customerEmail, setCustomerEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [sendCopy, setSendCopy] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [visibleAttachmentFields, setVisibleAttachmentFields] = useState([1]);
   const [selectedAttachments, setSelectedAttachments] = useState<
     Record<number, { name: string; size: number }>
@@ -110,12 +126,43 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    const { isValid, uploadInputs } = validateUploads(event.currentTarget);
+  const handlePhoneChange = (event: ChangeEvent<HTMLInputElement>) => {
+    event.currentTarget.setCustomValidity("");
+    setPhoneNumber(formatPhoneNumber(event.currentTarget.value));
+  };
+
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const { isValid, uploadInputs } = validateUploads(form);
 
     if (!isValid) {
-      event.preventDefault();
       uploadInputs.find((input) => input.files?.[0])?.reportValidity();
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch(formSubmitAjaxUrl, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("FormSubmit request failed.");
+      }
+
+      window.location.href = "/thank-you";
+    } catch {
+      setIsSubmitting(false);
+      setSubmitError(
+        "Something went wrong while sending your message. Please try again."
+      );
     }
   };
 
@@ -170,7 +217,7 @@ export default function Contact() {
 
           <div>
             <form
-              action={`https://formsubmit.co/${contactEmail}`}
+              action={formSubmitUrl}
               method="POST"
               encType="multipart/form-data"
               className="space-y-6"
@@ -258,8 +305,9 @@ export default function Contact() {
                   type="tel"
                   autoComplete="tel"
                   required
+                  value={phoneNumber}
+                  onChange={handlePhoneChange}
                   onInvalid={handleInvalid}
-                  onInput={clearValidation}
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
@@ -363,7 +411,9 @@ export default function Contact() {
                   </p>
                   <p
                     className={`mt-2 text-xs font-light leading-relaxed ${
-                      isUploadSizeValid ? "text-charcoal/60" : "text-accent"
+                      isUploadSizeValid
+                        ? "text-charcoal/60"
+                        : "animate-pulse font-semibold text-red-700"
                     }`}
                     aria-live="polite"
                   >
@@ -403,11 +453,17 @@ export default function Contact() {
                   </button>
                 ) : null}
               </div>
+              {submitError ? (
+                <p className="text-sm font-semibold leading-relaxed text-red-700">
+                  {submitError}
+                </p>
+              ) : null}
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="mt-4 border border-charcoal px-10 py-3 text-xs uppercase tracking-[0.25em] text-charcoal transition-all hover:bg-charcoal hover:text-warm-white"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
