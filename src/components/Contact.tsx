@@ -114,6 +114,92 @@ export default function Contact() {
               </div>
               <div>
                 <label
+                  htmlFor="phone"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                >
+                  Phone
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="project-location"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                >
+                  Project location
+                </label>
+                <input
+                  id="project-location"
+                  name="project_location"
+                  type="text"
+                  autoComplete="street-address"
+                  required
+                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="service"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                >
+                  Service interested in
+                </label>
+                <select
+                  id="service"
+                  name="service_interested_in"
+                  required
+                  defaultValue=""
+                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                >
+                  <option value="" disabled>
+                    Select a service
+                  </option>
+                  <option value="Design Consultation">Design Consultation</option>
+                  <option value="Furnishing & Styling">
+                    Furnishing & Styling
+                  </option>
+                  <option value="Space Planning">Space Planning</option>
+                  <option value="Renovations">Renovations</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  htmlFor="timeline"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                >
+                  Timeline
+                </label>
+                <input
+                  id="timeline"
+                  name="timeline"
+                  type="text"
+                  required
+                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="estimated-budget"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                >
+                  Estimated budget
+                </label>
+                <input
+                  id="estimated-budget"
+                  name="estimated_budget"
+                  type="text"
+                  required
+                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                />
+              </div>
+              <div>
+                <label
                   htmlFor="message"
                   className="mb-2 block text-xs uppercase tracking-widest text-muted"
                 >
