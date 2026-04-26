@@ -25,6 +25,9 @@ export async function generateMetadata({
   return {
     title: `${project.title} — Cordova Studio`,
     description: project.summary,
+    alternates: {
+      canonical: `/projects/${project.slug}`,
+    },
   };
 }
 

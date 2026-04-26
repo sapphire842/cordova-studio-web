@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thecordovastudio.com"),
   title: "The Córdova Studio — Interior Architecture & Design",
   description:
     "Timeless interior design rooted in natural aesthetics. Space planning, design consultations, and full home design in the San Francisco Bay Area.",
