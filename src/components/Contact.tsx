@@ -13,7 +13,7 @@ const contactEmail = "omar@thecordovastudio.com";
 const requiredMessage = "Please enter your response.";
 const maxTotalUploadSize = 10 * 1024 * 1024;
 const fileLimitMessage = "Please upload up to five files totaling 10 MB or less.";
-const attachmentFields = Array.from({ length: 5 }, (_, index) => index + 1);
+const maxAttachmentCount = 5;
 
 function handleInvalid(
   event: InvalidEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -27,11 +27,21 @@ function clearValidation(
   event.currentTarget.setCustomValidity("");
 }
 
+function formatFileSize(bytes: number) {
+  return `${(bytes / 1024 / 1024).toFixed(bytes > 0 ? 1 : 0)} MB`;
+}
+
 export default function Contact() {
   const ref = useReveal();
+  const [visibleAttachmentCount, setVisibleAttachmentCount] = useState(1);
   const [selectedAttachments, setSelectedAttachments] = useState<
-    Record<number, string>
+    Record<number, { name: string; size: number }>
   >({});
+  const totalUploadSize = Object.values(selectedAttachments).reduce(
+    (total, file) => total + file.size,
+    0
+  );
+  const isUploadSizeValid = totalUploadSize <= maxTotalUploadSize;
 
   const validateUploads = (form: HTMLFormElement) => {
     const uploadInputs = Array.from(
@@ -62,7 +72,7 @@ export default function Contact() {
           return next;
         }
 
-        return { ...current, [fieldNumber]: file.name };
+        return { ...current, [fieldNumber]: { name: file.name, size: file.size } };
       });
       validateUploads(input.form as HTMLFormElement);
     };
@@ -81,6 +91,12 @@ export default function Contact() {
       return next;
     });
     validateUploads(input.form as HTMLFormElement);
+  };
+
+  const addAttachmentSlot = () => {
+    setVisibleAttachmentCount((current) =>
+      Math.min(current + 1, maxAttachmentCount)
+    );
   };
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
@@ -318,8 +334,20 @@ export default function Contact() {
                   <p className="text-xs font-light leading-relaxed text-charcoal/60">
                     PNG, JPG, JPEG, or PDF. Maximum 10 MB total.
                   </p>
+                  <p
+                    className={`mt-2 text-xs font-light leading-relaxed ${
+                      isUploadSizeValid ? "text-charcoal/60" : "text-accent"
+                    }`}
+                    aria-live="polite"
+                  >
+                    {formatFileSize(totalUploadSize)} of{" "}
+                    {formatFileSize(maxTotalUploadSize)} selected
+                  </p>
                 </div>
-                {attachmentFields.map((fieldNumber) => (
+                {Array.from(
+                  { length: visibleAttachmentCount },
+                  (_, index) => index + 1
+                ).map((fieldNumber) => (
                   <div key={fieldNumber}>
                     <input
                       aria-label={`Attachment ${fieldNumber}`}
@@ -336,11 +364,20 @@ export default function Contact() {
                         onClick={() => clearAttachment(fieldNumber)}
                         className="mt-2 text-[10px] uppercase tracking-[0.25em] text-muted transition-colors hover:text-accent"
                       >
-                        Remove {selectedAttachments[fieldNumber]}
+                        Remove {selectedAttachments[fieldNumber].name}
                       </button>
                     ) : null}
                   </div>
                 ))}
+                {visibleAttachmentCount < maxAttachmentCount ? (
+                  <button
+                    type="button"
+                    onClick={addAttachmentSlot}
+                    className="text-[10px] uppercase tracking-[0.25em] text-charcoal transition-colors hover:text-accent"
+                  >
+                    + Add more
+                  </button>
+                ) : null}
               </div>
               <button
                 type="submit"
