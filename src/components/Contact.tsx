@@ -60,6 +60,7 @@ export default function Contact() {
             <form
               action={`https://formsubmit.co/${contactEmail}`}
               method="POST"
+              encType="multipart/form-data"
               className="space-y-6"
             >
               <input
@@ -124,6 +125,21 @@ export default function Contact() {
                   rows={4}
                   required
                   className="w-full resize-none border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="attachment"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                >
+                  Upload inspiration, plans, or photos
+                </label>
+                <input
+                  id="attachment"
+                  name="attachment"
+                  type="file"
+                  accept="image/*,.pdf"
+                  className="w-full cursor-pointer border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal file:mr-5 file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:file:bg-accent focus:outline-none"
                 />
               </div>
               <button
