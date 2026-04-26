@@ -6,6 +6,7 @@ import type {
   FormEventHandler,
   InvalidEvent,
 } from "react";
+import { useState } from "react";
 import { useReveal } from "@/lib/utils";
 
 const contactEmail = "omar@thecordovastudio.com";
@@ -28,6 +29,9 @@ function clearValidation(
 
 export default function Contact() {
   const ref = useReveal();
+  const [selectedAttachments, setSelectedAttachments] = useState<
+    Record<number, string>
+  >({});
 
   const validateUploads = (form: HTMLFormElement) => {
     const uploadInputs = Array.from(
@@ -46,8 +50,37 @@ export default function Contact() {
     return { isValid, uploadInputs };
   };
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    validateUploads(event.currentTarget.form as HTMLFormElement);
+  const handleFileChange =
+    (fieldNumber: number) => (event: ChangeEvent<HTMLInputElement>) => {
+      const input = event.currentTarget;
+      const file = input.files?.[0];
+
+      setSelectedAttachments((current) => {
+        if (!file) {
+          const next = { ...current };
+          delete next[fieldNumber];
+          return next;
+        }
+
+        return { ...current, [fieldNumber]: file.name };
+      });
+      validateUploads(input.form as HTMLFormElement);
+    };
+
+  const clearAttachment = (fieldNumber: number) => {
+    const input = document.querySelector<HTMLInputElement>(
+      `[data-file-upload="${fieldNumber}"]`
+    );
+
+    if (!input) return;
+
+    input.value = "";
+    setSelectedAttachments((current) => {
+      const next = { ...current };
+      delete next[fieldNumber];
+      return next;
+    });
+    validateUploads(input.form as HTMLFormElement);
   };
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
@@ -287,16 +320,26 @@ export default function Contact() {
                   </p>
                 </div>
                 {attachmentFields.map((fieldNumber) => (
-                  <input
-                    key={fieldNumber}
-                    aria-label={`Attachment ${fieldNumber}`}
-                    name={`attachment_${fieldNumber}`}
-                    type="file"
-                    accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf"
-                    data-file-upload
-                    onChange={handleFileChange}
-                    className="w-full cursor-pointer border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal file:mr-5 file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:file:bg-accent focus:outline-none"
-                  />
+                  <div key={fieldNumber}>
+                    <input
+                      aria-label={`Attachment ${fieldNumber}`}
+                      name={`attachment_${fieldNumber}`}
+                      type="file"
+                      accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf"
+                      data-file-upload={fieldNumber}
+                      onChange={handleFileChange(fieldNumber)}
+                      className="w-full cursor-pointer border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal file:mr-5 file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:file:bg-accent focus:outline-none"
+                    />
+                    {selectedAttachments[fieldNumber] ? (
+                      <button
+                        type="button"
+                        onClick={() => clearAttachment(fieldNumber)}
+                        className="mt-2 text-[10px] uppercase tracking-[0.25em] text-muted transition-colors hover:text-accent"
+                      >
+                        Remove {selectedAttachments[fieldNumber]}
+                      </button>
+                    ) : null}
+                  </div>
                 ))}
               </div>
               <button
