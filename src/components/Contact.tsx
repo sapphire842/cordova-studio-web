@@ -33,6 +33,8 @@ function formatFileSize(bytes: number) {
 
 export default function Contact() {
   const ref = useReveal();
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [sendCopy, setSendCopy] = useState(false);
   const [visibleAttachmentFields, setVisibleAttachmentFields] = useState([1]);
   const [selectedAttachments, setSelectedAttachments] = useState<
     Record<number, { name: string; size: number }>
@@ -186,6 +188,7 @@ export default function Contact() {
               />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_cc" value={sendCopy ? customerEmail : ""} />
               <input
                 type="text"
                 name="_honey"
@@ -209,23 +212,38 @@ export default function Contact() {
                   className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
                 />
               </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                >
-                  Email
+              <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={customerEmail}
+                    onChange={(event) =>
+                      setCustomerEmail(event.currentTarget.value)
+                    }
+                    onInvalid={handleInvalid}
+                    onInput={clearValidation}
+                    className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                  />
+                </div>
+                <label className="flex items-center gap-3 pb-3 text-sm font-light leading-relaxed text-charcoal/70 md:whitespace-nowrap">
+                  <input
+                    type="checkbox"
+                    checked={sendCopy}
+                    onChange={(event) => setSendCopy(event.currentTarget.checked)}
+                    className="h-4 w-4 accent-charcoal"
+                  />
+                  <span>Send me a copy</span>
                 </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  onInvalid={handleInvalid}
-                  onInput={clearValidation}
-                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
-                />
               </div>
               <div>
                 <label
