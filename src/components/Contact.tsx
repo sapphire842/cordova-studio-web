@@ -1,13 +1,11 @@
 "use client";
 
 import { useReveal } from "@/lib/utils";
-import { useState } from "react";
 
 const contactEmail = "omar@thecordovastudio.com";
 
 export default function Contact() {
   const ref = useReveal();
-  const [submitted, setSubmitted] = useState(false);
 
   return (
     <section id="contact" className="bg-warm-white py-24 lg:py-32">
@@ -59,94 +57,82 @@ export default function Contact() {
           </div>
 
           <div>
-            {submitted ? (
-              <div className="flex h-full items-center justify-center">
-                <div className="text-center">
-                  <p className="font-serif text-xl text-charcoal">
-                    Thank you — your email draft is ready.
-                  </p>
-                  <p className="mt-3 text-sm font-light leading-relaxed text-charcoal/60">
-                    Please send it from your email app to complete your inquiry.
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const formData = new FormData(e.currentTarget);
-                  const name = String(formData.get("name") ?? "").trim();
-                  const email = String(formData.get("email") ?? "").trim();
-                  const message = String(formData.get("message") ?? "").trim();
-                  const subject = `New project inquiry from ${name}`;
-                  const body = [
-                    `Name: ${name}`,
-                    `Email: ${email}`,
-                    "",
-                    "Project details:",
-                    message,
-                  ].join("\n");
-
-                  window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(
-                    subject
-                  )}&body=${encodeURIComponent(body)}`;
-                  setSubmitted(true);
-                }}
-                className="space-y-6"
-              >
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                  >
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                  >
-                    Tell us about your project
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    className="w-full resize-none border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="mt-4 border border-charcoal px-10 py-3 text-xs uppercase tracking-[0.25em] text-charcoal transition-all hover:bg-charcoal hover:text-warm-white"
+            <form
+              action={`https://formsubmit.co/${contactEmail}`}
+              method="POST"
+              className="space-y-6"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New project inquiry from The Cordova Studio website"
+              />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://thecordovastudio.com/thank-you"
+              />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="text"
+                name="_honey"
+                className="hidden"
+                tabIndex={-1}
+              />
+              <div>
+                <label
+                  htmlFor="name"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
                 >
-                  Send Message
-                </button>
-              </form>
-            )}
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                >
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                >
+                  Tell us about your project
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="w-full resize-none border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                />
+              </div>
+              <button
+                type="submit"
+                className="mt-4 border border-charcoal px-10 py-3 text-xs uppercase tracking-[0.25em] text-charcoal transition-all hover:bg-charcoal hover:text-warm-white"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </div>
