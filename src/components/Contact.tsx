@@ -15,6 +15,31 @@ const requiredMessage = "Please enter your response.";
 const maxTotalUploadSize = 10 * 1024 * 1024;
 const fileLimitMessage = "Please upload up to five files totaling 10 MB or less.";
 const maxAttachmentCount = 5;
+const fieldClassName =
+  "w-full rounded-[6px] border border-charcoal/15 bg-warm-white/70 px-4 py-3 text-sm text-charcoal outline-none shadow-[0_10px_30px_rgba(26,26,26,0.03)] transition-all duration-300 placeholder:text-muted/70 hover:border-accent/45 hover:bg-white/60 focus:border-accent focus:bg-white focus:shadow-[0_0_0_4px_rgba(196,168,130,0.18),0_18px_45px_rgba(26,26,26,0.08)]";
+const fileFieldClassName =
+  "w-full cursor-pointer rounded-[6px] border border-charcoal/15 bg-warm-white/70 px-4 py-3 text-sm text-charcoal shadow-[0_10px_30px_rgba(26,26,26,0.03)] transition-all duration-300 file:mr-5 file:rounded-[4px] file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:border-accent/45 hover:bg-white/60 hover:file:bg-accent focus:border-accent focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(196,168,130,0.18),0_18px_45px_rgba(26,26,26,0.08)]";
+
+function TrashIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.8"
+    >
+      <path d="M3 6h18" />
+      <path d="M8 6V4h8v2" />
+      <path d="M6 6l1 15h10l1-15" />
+      <path d="M10 11v6" />
+      <path d="M14 11v6" />
+    </svg>
+  );
+}
 
 function handleInvalid(
   event: InvalidEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -121,6 +146,13 @@ export default function Contact() {
       ).find((fieldNumber) => !current.includes(fieldNumber));
 
       return nextField ? [...current, nextField] : current;
+    });
+  };
+
+  const removeEmptyAttachmentSlot = (fieldNumber: number) => {
+    setVisibleAttachmentFields((current) => {
+      if (current.length === 1) return current;
+      return current.filter((visibleField) => visibleField !== fieldNumber);
     });
   };
 
@@ -232,7 +264,7 @@ export default function Contact() {
                   required
                   onInvalid={handleInvalid}
                   onInput={clearValidation}
-                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                  className={fieldClassName}
                 />
               </div>
               <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
@@ -255,7 +287,7 @@ export default function Contact() {
                     }
                     onInvalid={handleInvalid}
                     onInput={clearValidation}
-                    className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                    className={fieldClassName}
                   />
                 </div>
                 <label className="flex items-center gap-3 pb-3 text-sm font-light leading-relaxed text-charcoal/70 md:whitespace-nowrap">
@@ -284,7 +316,7 @@ export default function Contact() {
                   value={phoneNumber}
                   onChange={handlePhoneChange}
                   onInvalid={handleInvalid}
-                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                  className={fieldClassName}
                 />
               </div>
               <div>
@@ -302,7 +334,7 @@ export default function Contact() {
                   required
                   onInvalid={handleInvalid}
                   onInput={clearValidation}
-                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                  className={fieldClassName}
                 />
               </div>
               <div>
@@ -319,7 +351,7 @@ export default function Contact() {
                   defaultValue=""
                   onInvalid={handleInvalid}
                   onInput={clearValidation}
-                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                  className={fieldClassName}
                 >
                   <option value="" disabled>
                     Select a service
@@ -343,7 +375,7 @@ export default function Contact() {
                   id="timeline"
                   name="timeline"
                   type="text"
-                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                  className={fieldClassName}
                 />
               </div>
               <div>
@@ -357,7 +389,7 @@ export default function Contact() {
                   id="estimated-budget"
                   name="estimated_budget"
                   type="text"
-                  className="w-full border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                  className={fieldClassName}
                 />
               </div>
               <div>
@@ -374,7 +406,7 @@ export default function Contact() {
                   required
                   onInvalid={handleInvalid}
                   onInput={clearValidation}
-                  className="w-full resize-none border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal outline-none transition-colors focus:border-accent"
+                  className={`${fieldClassName} resize-none`}
                 />
               </div>
               <div className="space-y-3">
@@ -399,15 +431,27 @@ export default function Contact() {
                 </div>
                 {visibleAttachmentFields.map((fieldNumber) => (
                   <div key={fieldNumber}>
-                    <input
-                      aria-label={`Attachment ${fieldNumber}`}
-                      name={`attachment_${fieldNumber}`}
-                      type="file"
-                      accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf"
-                      data-file-upload={fieldNumber}
-                      onChange={handleFileChange(fieldNumber)}
-                      className="w-full cursor-pointer border-b border-charcoal/20 bg-transparent py-3 text-sm text-charcoal file:mr-5 file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:file:bg-accent focus:outline-none"
-                    />
+                    <div className="flex items-center gap-3">
+                      <input
+                        aria-label={`Attachment ${fieldNumber}`}
+                        name={`attachment_${fieldNumber}`}
+                        type="file"
+                        accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf"
+                        data-file-upload={fieldNumber}
+                        onChange={handleFileChange(fieldNumber)}
+                        className={fileFieldClassName}
+                      />
+                      {fieldNumber !== 1 && !selectedAttachments[fieldNumber] ? (
+                        <button
+                          type="button"
+                          onClick={() => removeEmptyAttachmentSlot(fieldNumber)}
+                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[6px] border border-charcoal/15 text-muted shadow-[0_10px_30px_rgba(26,26,26,0.03)] transition-all duration-300 hover:border-accent/45 hover:bg-white/70 hover:text-accent focus:border-accent focus:text-accent focus:outline-none focus:shadow-[0_0_0_4px_rgba(196,168,130,0.18)]"
+                          aria-label={`Remove attachment ${fieldNumber} field`}
+                        >
+                          <TrashIcon />
+                        </button>
+                      ) : null}
+                    </div>
                     {selectedAttachments[fieldNumber] ? (
                       <button
                         type="button"
