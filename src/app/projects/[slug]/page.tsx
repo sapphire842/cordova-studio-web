@@ -23,10 +23,27 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: `${project.title} — Cordova Studio`,
+    title: `${project.title} — The Córdova Studio`,
     description: project.summary,
     alternates: {
       canonical: `/projects/${project.slug}`,
+    },
+    openGraph: {
+      title: `${project.title} — The Córdova Studio`,
+      description: project.summary,
+      url: `/projects/${project.slug}`,
+      siteName: "The Córdova Studio",
+      type: "article",
+      images: project.coverImage
+        ? [
+            {
+              url: project.coverImage,
+              width: 1200,
+              height: 630,
+              alt: project.title,
+            },
+          ]
+        : undefined,
     },
   };
 }
