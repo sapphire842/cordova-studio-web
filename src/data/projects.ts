@@ -5,6 +5,7 @@ export interface Project {
   location: string;
   category: string;
   year: string;
+  updatedAt: string;
   summary: string;
   description: string;
   concept: string;
@@ -26,6 +27,7 @@ export const projects: Project[] = [
     location: "Pleasanton, CA",
     category: "Residential",
     year: "2025",
+    updatedAt: "2026-04-30",
     summary:
       "A Pleasanton kitchen remodel staged and visualized to highlight a warm, functional, and elevated everyday gathering space.",
     description:
@@ -71,6 +73,7 @@ export const projects: Project[] = [
     location: "Bay Area, CA",
     category: "Residential",
     year: "2026",
+    updatedAt: "2026-04-30",
     summary:
       "A forthcoming collection focused on layout strategy, circulation, and thoughtful spatial planning for everyday living.",
     description:
@@ -90,6 +93,7 @@ export const projects: Project[] = [
     location: "Portfolio",
     category: "Academic",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A curated academic portfolio presented as a digital book, collecting interior architecture and design work.",
     description:
@@ -109,6 +113,7 @@ export const projects: Project[] = [
     location: "Bay Area, CA",
     category: "Residential",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A collection of residential furnishing and styling projects shaped through layered textiles, warm finishes, and carefully balanced living spaces.",
     description:
@@ -131,6 +136,7 @@ export const projects: Project[] = [
     location: "Dublin, CA",
     category: "Furnishing & Styling",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A single-family residence styled through warm furnishings, layered textiles, and comfortable family and living room compositions.",
     description:
@@ -164,6 +170,7 @@ export const projects: Project[] = [
     location: "Oakland, CA",
     category: "Furnishing & Styling",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A layered Oakland residence styled through warm living spaces, a refined kitchen and dining flow, relaxed bedroom moments, a home gym, and an inviting patio.",
     description:
@@ -213,6 +220,7 @@ export const projects: Project[] = [
     location: "Bay Area, CA",
     category: "Residential",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A collection of staged residential spaces composed to highlight warmth, scale, flow, and everyday livability.",
     description:
@@ -232,6 +240,7 @@ export const projects: Project[] = [
     location: "Bay Area, CA",
     category: "Staging",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A bedroom staging collection shaped around calm composition, soft textiles, and approachable residential warmth.",
     description:
@@ -266,6 +275,7 @@ export const projects: Project[] = [
     location: "Bay Area, CA",
     category: "Staging",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A living and family room staging collection arranged around comfort, conversation, and inviting everyday flow.",
     description:
@@ -295,6 +305,7 @@ export const projects: Project[] = [
     location: "Bay Area, CA",
     category: "Staging",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A dining room staging collection composed around warmth, proportion, and inviting gathering moments.",
     description:
@@ -306,7 +317,7 @@ export const projects: Project[] = [
     coverImage: "/images/projects/staging/dining rooms/cover.JPG",
     images: [
       "/images/projects/staging/dining rooms/cover.JPG",
-      "/images/projects/staging/dining rooms/gallery-1.png",
+      "/images/projects/staging/dining rooms/gallery-1.jpg",
       "/images/projects/staging/dining rooms/gallery-2.jpg",
       "/images/projects/staging/dining rooms/gallery-3.JPG",
       "/images/projects/staging/dining rooms/gallery-4.JPG",
@@ -325,6 +336,7 @@ export const projects: Project[] = [
     location: "Bay Area, CA",
     category: "Staging",
     year: "2024",
+    updatedAt: "2026-04-30",
     summary:
       "A miscellaneous staging collection highlighting flexible residential moments, accent spaces, and finishing details.",
     description:
