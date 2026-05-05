@@ -192,13 +192,13 @@ export const projects: Project[] = [
     location: "Dublin, CA",
     category: "Furnishing & Styling",
     year: "2024",
-    updatedAt: "2026-04-30",
+    updatedAt: "2026-05-05",
     summary:
-      "A single-family residence styled through warm furnishings, layered textiles, and comfortable family and living room compositions.",
+      "A single-family residence styled through warm furnishings, layered textiles, comfortable living spaces, and a softly composed guest bedroom.",
     description:
-      "Single Family Residence - Dublin focuses on furnishing and styling the home's family and living room spaces with a calm, cohesive material language. The project layers upholstery, accent pieces, pillows, lighting, and accessories to create rooms that feel considered, welcoming, and easy to live in.",
+      "Single Family Residence - Dublin focuses on furnishing and styling the home's family room, living room, and guest bedroom with a calm, cohesive material language. The project layers upholstery, accent pieces, pillows, lighting, and accessories to create rooms that feel considered, welcoming, and easy to live in.",
     concept:
-      "A warm residential styling direction where the family room and living room feel connected through softness, proportion, and tactile detail.",
+      "A warm residential styling direction where the family room, living room, and guest bedroom feel connected through softness, proportion, and tactile detail.",
     approach:
       "The styling balances practical comfort with refined finishing touches. Furniture placement supports conversation and daily use, while textiles, accessories, and lighting add depth and visual continuity across the home.",
     coverImage:
@@ -209,6 +209,14 @@ export const projects: Project[] = [
       "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-2.jpg",
       "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-3.jpg",
       "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-4.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-5.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-6.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-7.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-8.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-9.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-10.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-11.jpg",
+      "/images/projects/furnishing-styling/single-family-residence-dublin/gallery-12.jpg",
     ],
     imageCaptions: [
       "family room",
@@ -216,6 +224,14 @@ export const projects: Project[] = [
       "living room",
       "living room",
       "living room",
+      "guest bedroom",
+      "guest bedroom",
+      "guest bedroom",
+      "guest bedroom",
+      "guest bedroom",
+      "guest bedroom",
+      "guest bedroom",
+      "guest bedroom",
     ],
     parentSlug: "furnishing-styling",
   },
