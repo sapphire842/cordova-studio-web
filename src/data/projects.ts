@@ -188,15 +188,15 @@ export const projects: Project[] = [
   {
     slug: "single-family-residence-dublin",
     number: "04.01",
-    title: "Single Family Residence - Dublin",
-    location: "Dublin, CA",
+    title: "Single Family Residence - Pleasanton",
+    location: "Pleasanton, CA",
     category: "Furnishing & Styling",
     year: "2024",
     updatedAt: "2026-05-05",
     summary:
       "A single-family residence styled through warm furnishings, layered textiles, comfortable living spaces, and a softly composed guest bedroom.",
     description:
-      "Single Family Residence - Dublin focuses on furnishing and styling the home's family room, living room, and guest bedroom with a calm, cohesive material language. The project layers upholstery, accent pieces, pillows, lighting, and accessories to create rooms that feel considered, welcoming, and easy to live in.",
+      "Single Family Residence - Pleasanton focuses on furnishing and styling the home's family room, living room, and guest bedroom with a calm, cohesive material language. The project layers upholstery, accent pieces, pillows, lighting, and accessories to create rooms that feel considered, welcoming, and easy to live in.",
     concept:
       "A warm residential styling direction where the family room, living room, and guest bedroom feel connected through softness, proportion, and tactile detail.",
     approach:
