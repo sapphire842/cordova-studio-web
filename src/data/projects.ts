@@ -21,13 +21,33 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "pleasanton-kitchen-remodel",
+    slug: "renovations-transformations",
     number: "01",
     title: "Renovations & Transformations",
-    location: "Pleasanton, CA",
+    location: "Bay Area, CA",
     category: "Residential",
+    year: "2026",
+    updatedAt: "2026-05-05",
+    summary:
+      "A collection of residential transformations focused on thoughtful updates, refreshed function, and elevated everyday living.",
+    description:
+      "Renovations & Transformations brings together projects that reshape existing spaces with clearer function, warmer finishes, and a more intentional relationship between daily routines and design detail. Each project is organized as its own study so visitors can move through the work with the same editorial rhythm as the rest of the portfolio.",
+    concept:
+      "A transformation-focused portfolio category where each project highlights the potential within an existing space, from layout improvements and finish direction to atmosphere, flow, and practical use.",
+    approach:
+      "Each renovation project is presented through a calm, cohesive visual language that balances finished photography, renderings, and design intent. The focus stays on clarity, comfort, and the details that help a transformed space feel natural to live in.",
+    coverImage: "/images/projects/pleasanton-kitchen-remodel/cover.jpg",
+    images: ["/images/projects/pleasanton-kitchen-remodel/cover.jpg"],
+    isCollection: true,
+  },
+  {
+    slug: "pleasanton-kitchen-remodel",
+    number: "01.01",
+    title: "Kitchen Remodel",
+    location: "Pleasanton, CA",
+    category: "Renovations & Transformations",
     year: "2025",
-    updatedAt: "2026-04-30",
+    updatedAt: "2026-05-05",
     summary:
       "A Pleasanton kitchen remodel staged and visualized to highlight a warm, functional, and elevated everyday gathering space.",
     description:
@@ -65,6 +85,28 @@ export const projects: Project[] = [
       "renderings",
       "renderings",
     ],
+    parentSlug: "renovations-transformations",
+  },
+  {
+    slug: "office-transformation",
+    number: "01.02",
+    title: "Office Transformation",
+    location: "Bay Area, CA",
+    category: "Renovations & Transformations",
+    year: "2026",
+    updatedAt: "2026-05-05",
+    summary:
+      "A forthcoming office transformation project focused on creating a polished, functional, and welcoming workspace.",
+    description:
+      "Office Transformation will present a workspace update within the Renovations & Transformations collection. Once photography is added, this project will show the design direction, spatial improvements, and finishing details that shape a more refined and practical office environment.",
+    concept:
+      "A workplace transformation shaped around focus, comfort, professionalism, and the kind of visual warmth that helps an office feel considered rather than purely utilitarian.",
+    approach:
+      "This project page is prepared for upcoming imagery and will be expanded with the same project structure, gallery behavior, labels, and editorial tone used across the rest of the portfolio.",
+    coverImage: "",
+    images: [],
+    placeholderLabel: "Coming Soon",
+    parentSlug: "renovations-transformations",
   },
   {
     slug: "space-planning",
