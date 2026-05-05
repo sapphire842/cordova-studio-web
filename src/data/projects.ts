@@ -91,21 +91,35 @@ export const projects: Project[] = [
     slug: "office-transformation",
     number: "01.02",
     title: "Office Transformation",
-    location: "Bay Area, CA",
+    location: "Pleasanton, CA",
     category: "Renovations & Transformations",
     year: "2026",
     updatedAt: "2026-05-05",
     summary:
-      "A forthcoming office transformation project focused on creating a polished, functional, and welcoming workspace.",
+      "A Pleasanton office transformation focused on creating a polished, functional, and welcoming workspace.",
     description:
-      "Office Transformation will present a workspace update within the Renovations & Transformations collection. Once photography is added, this project will show the design direction, spatial improvements, and finishing details that shape a more refined and practical office environment.",
+      "This Pleasanton office transformation brings a workspace into the Renovations & Transformations collection with a focus on comfort, clarity, and everyday functionality. The project presents a refined office environment shaped through thoughtful styling, balanced composition, and details that help the room feel both professional and inviting.",
     concept:
       "A workplace transformation shaped around focus, comfort, professionalism, and the kind of visual warmth that helps an office feel considered rather than purely utilitarian.",
     approach:
-      "This project page is prepared for upcoming imagery and will be expanded with the same project structure, gallery behavior, labels, and editorial tone used across the rest of the portfolio.",
-    coverImage: "",
-    images: [],
-    placeholderLabel: "Coming Soon",
+      "The presentation keeps the same quiet editorial rhythm as the kitchen remodel, using the cover image as the visual anchor and a simple gallery sequence to show the room's materials, styling, and overall atmosphere.",
+    coverImage: "/images/projects/pleasanton-office-remodel/cover.jpg",
+    images: [
+      "/images/projects/pleasanton-office-remodel/cover.jpg",
+      "/images/projects/pleasanton-office-remodel/gallery-1.jpg",
+      "/images/projects/pleasanton-office-remodel/gallery-2.jpg",
+      "/images/projects/pleasanton-office-remodel/gallery-3.jpg",
+      "/images/projects/pleasanton-office-remodel/gallery-4.jpg",
+      "/images/projects/pleasanton-office-remodel/Image 6.jpg",
+    ],
+    imageCaptions: [
+      "office",
+      "office",
+      "office",
+      "office",
+      "office",
+      "office",
+    ],
     parentSlug: "renovations-transformations",
   },
   {
