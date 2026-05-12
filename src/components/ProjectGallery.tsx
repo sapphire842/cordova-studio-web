@@ -13,16 +13,40 @@ export default function ProjectGallery({
   captions?: string[];
   imageRadius?: "5px" | "6px";
 }) {
-  const [selectedImage, setSelectedImage] = useState<{
-    src: string;
-    caption?: string;
-  } | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const selectedImage =
+    selectedIndex === null
+      ? null
+      : { src: images[selectedIndex], caption: captions?.[selectedIndex] };
+  const hasMultipleImages = images.length > 1;
+
+  const showPreviousImage = () => {
+    setSelectedIndex((current) => {
+      if (current === null) return current;
+      return current === 0 ? images.length - 1 : current - 1;
+    });
+  };
+
+  const showNextImage = () => {
+    setSelectedIndex((current) => {
+      if (current === null) return current;
+      return current === images.length - 1 ? 0 : current + 1;
+    });
+  };
 
   useEffect(() => {
-    if (!selectedImage) return;
+    if (selectedIndex === null) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelectedImage(null);
+      if (event.key === "Escape") setSelectedIndex(null);
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showPreviousImage();
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showNextImage();
+      }
     };
 
     document.body.style.overflow = "hidden";
@@ -32,7 +56,7 @@ export default function ProjectGallery({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [selectedImage]);
+  }, [selectedIndex, images.length]);
 
   return (
     <>
@@ -42,9 +66,7 @@ export default function ProjectGallery({
             <div key={img}>
               <button
                 type="button"
-                onClick={() =>
-                  setSelectedImage({ src: img, caption: captions?.[i] })
-                }
+                onClick={() => setSelectedIndex(i)}
                 className={`group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left ${
                   imageRadius === "5px"
                     ? "rounded-[5px]"
@@ -91,20 +113,47 @@ export default function ProjectGallery({
           className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/90 p-4 md:p-8"
           role="dialog"
           aria-modal="true"
-          onClick={() => setSelectedImage(null)}
+          onClick={() => setSelectedIndex(null)}
         >
           <button
             type="button"
             className="absolute right-5 top-5 text-xs uppercase tracking-[0.25em] text-warm-white transition-colors hover:text-accent"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedIndex(null)}
           >
             Close
           </button>
+          {hasMultipleImages && (
+            <>
+              <button
+                type="button"
+                className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-warm-white/30 bg-charcoal/40 text-2xl leading-none text-warm-white transition-colors hover:border-accent hover:text-accent md:left-8"
+                aria-label="Previous image"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  showPreviousImage();
+                }}
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-warm-white/30 bg-charcoal/40 text-2xl leading-none text-warm-white transition-colors hover:border-accent hover:text-accent md:right-8"
+                aria-label="Next image"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  showNextImage();
+                }}
+              >
+                ›
+              </button>
+            </>
+          )}
           <div
             className="flex max-h-[86vh] max-w-full flex-col items-start"
             onClick={(event) => event.stopPropagation()}
           >
             <img
+              key={selectedImage.src}
               src={selectedImage.src}
               alt={`${title} enlarged gallery image`}
               className={`max-h-[82vh] max-w-full object-contain ${
