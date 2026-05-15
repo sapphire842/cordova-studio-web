@@ -16,9 +16,9 @@ const maxTotalUploadSize = 10 * 1024 * 1024;
 const fileLimitMessage = "Please upload up to five files totaling 10 MB or less.";
 const maxAttachmentCount = 5;
 const fieldClassName =
-  "w-full rounded-[6px] border border-charcoal/15 bg-warm-white/70 px-4 py-3 text-sm text-charcoal outline-none shadow-[0_10px_30px_rgba(26,26,26,0.03)] transition-all duration-300 placeholder:text-muted/70 hover:border-accent/45 hover:bg-white/60 focus:border-accent focus:bg-white focus:shadow-[0_0_0_4px_rgba(196,168,130,0.18),0_18px_45px_rgba(26,26,26,0.08)]";
+  "w-full rounded-[6px] border border-charcoal/18 bg-white/85 px-4 py-3 text-sm text-charcoal outline-none shadow-[0_10px_30px_rgba(26,26,26,0.04)] transition-all duration-300 placeholder:text-muted/70 hover:border-accent/55 hover:bg-white focus:border-accent focus:bg-white focus:shadow-[0_0_0_4px_rgba(196,168,130,0.2),0_18px_45px_rgba(26,26,26,0.1)]";
 const fileFieldClassName =
-  "w-full cursor-pointer rounded-[6px] border border-charcoal/15 bg-warm-white/70 px-4 py-3 text-sm text-charcoal shadow-[0_10px_30px_rgba(26,26,26,0.03)] transition-all duration-300 file:mr-5 file:rounded-[4px] file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:border-accent/45 hover:bg-white/60 hover:file:bg-accent focus:border-accent focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(196,168,130,0.18),0_18px_45px_rgba(26,26,26,0.08)]";
+  "w-full cursor-pointer rounded-[6px] border border-charcoal/18 bg-white/85 px-4 py-3 text-sm text-charcoal shadow-[0_10px_30px_rgba(26,26,26,0.04)] transition-all duration-300 file:mr-5 file:rounded-[4px] file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:border-accent/55 hover:bg-white hover:file:bg-accent focus:border-accent focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(196,168,130,0.2),0_18px_45px_rgba(26,26,26,0.1)]";
 
 function TrashIcon() {
   return (
@@ -177,7 +177,7 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-warm-white py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
-        <div className="grid gap-16 lg:grid-cols-2">
+        <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr]">
           <div ref={ref} className="fade-in">
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">
               Get in Touch
@@ -223,14 +223,24 @@ export default function Contact() {
             </div>
           </div>
 
-          <div>
+          <div className="relative">
+            <div className="absolute -inset-4 hidden border border-charcoal/8 lg:block" />
             <form
               action={formSubmitUrl}
               method="POST"
               encType="multipart/form-data"
-              className="space-y-6"
+              className="relative space-y-6 border border-charcoal/12 bg-[#fbf7f1] p-6 shadow-[0_24px_80px_rgba(26,26,26,0.1)] md:p-8"
               onSubmit={handleSubmit}
             >
+              <span className="absolute inset-x-0 top-0 h-px bg-accent" />
+              <div className="border-b border-charcoal/10 pb-5">
+                <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-accent">
+                  Project Inquiry
+                </p>
+                <p className="mt-3 font-serif text-2xl leading-tight text-charcoal">
+                  Tell us what you&apos;re imagining.
+                </p>
+              </div>
               <input
                 type="hidden"
                 name="_subject"
