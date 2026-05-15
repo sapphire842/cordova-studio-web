@@ -16,9 +16,9 @@ const maxTotalUploadSize = 10 * 1024 * 1024;
 const fileLimitMessage = "Please upload up to five files totaling 10 MB or less.";
 const maxAttachmentCount = 5;
 const fieldClassName =
-  "w-full rounded-[6px] border border-charcoal/18 bg-white/85 px-4 py-3 text-sm text-charcoal outline-none shadow-[0_10px_30px_rgba(26,26,26,0.04)] transition-all duration-300 placeholder:text-muted/70 hover:border-accent/55 hover:bg-white focus:border-accent focus:bg-white focus:shadow-[0_0_0_4px_rgba(196,168,130,0.2),0_18px_45px_rgba(26,26,26,0.1)]";
+  "w-full border-0 border-b border-charcoal/28 bg-transparent px-0 py-3 text-sm text-charcoal outline-none transition-all duration-300 placeholder:text-muted/70 hover:border-accent/70 focus:border-accent focus:bg-accent/[0.04] focus:px-3 focus:shadow-[0_12px_28px_rgba(196,168,130,0.12)]";
 const fileFieldClassName =
-  "w-full cursor-pointer rounded-[6px] border border-charcoal/18 bg-white/85 px-4 py-3 text-sm text-charcoal shadow-[0_10px_30px_rgba(26,26,26,0.04)] transition-all duration-300 file:mr-5 file:rounded-[4px] file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:border-accent/55 hover:bg-white hover:file:bg-accent focus:border-accent focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(196,168,130,0.2),0_18px_45px_rgba(26,26,26,0.1)]";
+  "w-full cursor-pointer border-0 border-b border-charcoal/28 bg-transparent px-0 py-3 text-sm text-charcoal transition-all duration-300 file:mr-5 file:rounded-[4px] file:border-0 file:bg-charcoal file:px-5 file:py-2 file:text-xs file:uppercase file:tracking-[0.2em] file:text-warm-white file:transition-colors hover:border-accent/70 hover:file:bg-accent focus:border-accent focus:bg-accent/[0.04] focus:px-3 focus:outline-none focus:shadow-[0_12px_28px_rgba(196,168,130,0.12)]";
 
 function TrashIcon() {
   return (
@@ -260,24 +260,24 @@ export default function Contact() {
                 className="hidden"
                 tabIndex={-1}
               />
-              <div>
-                <label
-                  htmlFor="name"
-                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                >
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  onInvalid={handleInvalid}
-                  onInput={clearValidation}
-                  className={fieldClassName}
-                />
-              </div>
-              <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                  >
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    onInvalid={handleInvalid}
+                    onInput={clearValidation}
+                    className={fieldClassName}
+                  />
+                </div>
                 <div>
                   <label
                     htmlFor="email"
@@ -299,96 +299,102 @@ export default function Contact() {
                     onInput={clearValidation}
                     className={fieldClassName}
                   />
+                  <label className="mt-3 flex items-center gap-3 text-sm font-light leading-relaxed text-charcoal/70">
+                    <input
+                      type="checkbox"
+                      checked={sendCopy}
+                      onChange={(event) =>
+                        setSendCopy(event.currentTarget.checked)
+                      }
+                      className="h-4 w-4 accent-charcoal"
+                    />
+                    <span>Send me a copy</span>
+                  </label>
                 </div>
-                <label className="flex items-center gap-3 pb-3 text-sm font-light leading-relaxed text-charcoal/70 md:whitespace-nowrap">
+              </div>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                  >
+                    Phone
+                  </label>
                   <input
-                    type="checkbox"
-                    checked={sendCopy}
-                    onChange={(event) => setSendCopy(event.currentTarget.checked)}
-                    className="h-4 w-4 accent-charcoal"
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    required
+                    value={phoneNumber}
+                    onChange={handlePhoneChange}
+                    onInvalid={handleInvalid}
+                    className={fieldClassName}
                   />
-                  <span>Send me a copy</span>
-                </label>
+                </div>
+                <div>
+                  <label
+                    htmlFor="project-location"
+                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                  >
+                    Project location
+                  </label>
+                  <input
+                    id="project-location"
+                    name="project_location"
+                    type="text"
+                    autoComplete="street-address"
+                    required
+                    onInvalid={handleInvalid}
+                    onInput={clearValidation}
+                    className={fieldClassName}
+                  />
+                </div>
               </div>
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                >
-                  Phone
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  autoComplete="tel"
-                  required
-                  value={phoneNumber}
-                  onChange={handlePhoneChange}
-                  onInvalid={handleInvalid}
-                  className={fieldClassName}
-                />
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="service"
+                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                  >
+                    Service interested in
+                  </label>
+                  <select
+                    id="service"
+                    name="service_interested_in"
+                    required
+                    defaultValue=""
+                    onInvalid={handleInvalid}
+                    onInput={clearValidation}
+                    className={fieldClassName}
+                  >
+                    <option value="" disabled>
+                      Select a service
+                    </option>
+                    <option value="Design Consultation">Design Consultation</option>
+                    <option value="Furnishing & Styling">
+                      Furnishing & Styling
+                    </option>
+                    <option value="Space Planning">Space Planning</option>
+                    <option value="Renovations">Renovations</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="timeline"
+                    className="mb-2 block text-xs uppercase tracking-widest text-muted"
+                  >
+                    Timeline
+                  </label>
+                  <input
+                    id="timeline"
+                    name="timeline"
+                    type="text"
+                    className={fieldClassName}
+                  />
+                </div>
               </div>
-              <div>
-                <label
-                  htmlFor="project-location"
-                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                >
-                  Project location
-                </label>
-                <input
-                  id="project-location"
-                  name="project_location"
-                  type="text"
-                  autoComplete="street-address"
-                  required
-                  onInvalid={handleInvalid}
-                  onInput={clearValidation}
-                  className={fieldClassName}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="service"
-                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                >
-                  Service interested in
-                </label>
-                <select
-                  id="service"
-                  name="service_interested_in"
-                  required
-                  defaultValue=""
-                  onInvalid={handleInvalid}
-                  onInput={clearValidation}
-                  className={fieldClassName}
-                >
-                  <option value="" disabled>
-                    Select a service
-                  </option>
-                  <option value="Design Consultation">Design Consultation</option>
-                  <option value="Furnishing & Styling">
-                    Furnishing & Styling
-                  </option>
-                  <option value="Space Planning">Space Planning</option>
-                  <option value="Renovations">Renovations</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="timeline"
-                  className="mb-2 block text-xs uppercase tracking-widest text-muted"
-                >
-                  Timeline
-                </label>
-                <input
-                  id="timeline"
-                  name="timeline"
-                  type="text"
-                  className={fieldClassName}
-                />
-              </div>
-              <div>
+              <div className="max-w-[calc(50%-0.75rem)] max-md:max-w-none">
                 <label
                   htmlFor="estimated-budget"
                   className="mb-2 block text-xs uppercase tracking-widest text-muted"
