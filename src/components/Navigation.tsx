@@ -38,16 +38,19 @@ export default function Navigation() {
       >
         <Link
           href="/"
-          className={`inline-flex items-center transition-all duration-500 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
-            scrolled
-              ? "font-serif text-xl text-charcoal hover:text-accent"
-              : "h-[72px] w-[96px] justify-center hover:drop-shadow-2xl"
+          className={`relative inline-flex items-center transition-all duration-500 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+            scrolled ? "h-[42px] w-[220px]" : "h-[72px] w-[96px]"
           }`}
           aria-label="The Cordova Studio home"
         >
-          {scrolled ? (
-            "The Córdova Studio"
-          ) : (
+          <span
+            className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+              scrolled
+                ? "scale-95 opacity-0"
+                : "scale-100 opacity-100 hover:drop-shadow-2xl"
+            }`}
+            aria-hidden={scrolled}
+          >
             <Image
               src="/images/logo.png"
               alt="The Cordova Studio"
@@ -56,7 +59,17 @@ export default function Navigation() {
               priority
               className="h-full w-full object-contain"
             />
-          )}
+          </span>
+          <span
+            className={`absolute inset-0 flex items-center font-serif text-xl text-charcoal transition-all duration-500 hover:text-accent ${
+              scrolled
+                ? "translate-y-0 opacity-100"
+                : "translate-y-2 opacity-0"
+            }`}
+            aria-hidden={!scrolled}
+          >
+            The Córdova Studio
+          </span>
         </Link>
 
         {/* Desktop nav */}
