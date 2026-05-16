@@ -38,16 +38,16 @@ export default function Navigation() {
       >
         <Link
           href="/"
-          className={`relative inline-flex items-center transition-all duration-500 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
-            scrolled ? "h-[42px] w-[220px]" : "h-[72px] w-[96px]"
+          className={`relative inline-flex w-[220px] items-center transition-[height] duration-500 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+            scrolled ? "h-[42px]" : "h-[72px]"
           }`}
           aria-label="The Cordova Studio home"
         >
           <span
-            className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+            className={`absolute left-0 top-1/2 flex h-full w-[96px] -translate-y-1/2 items-center justify-center transition-opacity duration-700 ease-out ${
               scrolled
-                ? "scale-95 opacity-0"
-                : "scale-100 opacity-100 hover:drop-shadow-2xl"
+                ? "pointer-events-none opacity-0"
+                : "opacity-100 hover:drop-shadow-2xl"
             }`}
             aria-hidden={scrolled}
           >
@@ -61,10 +61,10 @@ export default function Navigation() {
             />
           </span>
           <span
-            className={`absolute inset-0 flex items-center font-serif text-xl text-charcoal transition-all duration-500 hover:text-accent ${
+            className={`absolute left-0 top-1/2 flex -translate-y-1/2 items-center font-serif text-xl text-charcoal transition-opacity duration-700 ease-out hover:text-accent ${
               scrolled
-                ? "translate-y-0 opacity-100"
-                : "translate-y-2 opacity-0"
+                ? "opacity-100"
+                : "pointer-events-none opacity-0"
             }`}
             aria-hidden={!scrolled}
           >
