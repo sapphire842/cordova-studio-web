@@ -234,7 +234,7 @@ export default function Contact() {
             >
               <span className="absolute inset-x-0 top-0 h-px bg-accent" />
               <div className="border-b border-charcoal/10 pb-5">
-                <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-accent">
+                <p className="text-xs font-medium uppercase tracking-[0.3em] text-accent">
                   Project Inquiry
                 </p>
                 <p className="mt-3 font-serif text-2xl leading-tight text-charcoal">
