@@ -18,12 +18,18 @@ export default function About() {
               <br />
               García
             </h2>
-            <div className="aspect-[3/4] max-w-sm overflow-hidden rounded-[10px]">
-              <img
-                src="/images/headshot.jpg"
-                alt="Omar Córdova García"
-                className="h-full w-full object-cover"
-              />
+            <div className="group relative max-w-sm p-4 lg:-mt-3">
+              <div className="absolute left-0 top-0 h-1/2 w-px bg-accent/45 transition-all duration-500 group-hover:h-[58%]" />
+              <div className="absolute left-0 top-0 h-px w-1/2 bg-accent/45 transition-all duration-500 group-hover:w-[58%]" />
+              <div className="absolute bottom-0 right-0 h-1/2 w-px bg-accent/45 transition-all duration-500 group-hover:h-[58%]" />
+              <div className="absolute bottom-0 right-0 h-px w-1/2 bg-accent/45 transition-all duration-500 group-hover:w-[58%]" />
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[10px] bg-light-gray">
+                <img
+                  src="/images/headshot.jpg"
+                  alt="Omar Córdova García"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.015]"
+                />
+              </div>
             </div>
           </div>
 
