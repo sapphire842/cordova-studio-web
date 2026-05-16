@@ -28,6 +28,14 @@ export default function Footer() {
           >
             Email
           </a>
+          <a
+            href="https://invoice.zohosecure.com/portal/cordovastudio/signin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="uppercase tracking-widest transition-colors hover:text-accent"
+          >
+            Client Portal
+          </a>
         </div>
       </div>
     </footer>
