@@ -82,6 +82,28 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
+.center-fill-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.center-fill-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-charcoal);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.45s ease;
+}
+
+.center-fill-button:hover::before,
+.center-fill-button:focus-visible::before {
+  transform: scaleX(1);
+}
+
 .book-spread {
   perspective: 1800px;
 }
