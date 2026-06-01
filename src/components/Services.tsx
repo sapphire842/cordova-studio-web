@@ -76,9 +76,9 @@ export default function Services() {
   const ref = useReveal();
 
   return (
-    <section id="services" className="bg-warm-white px-4 py-10 sm:px-6 lg:px-8">
-      <div className="services-texture services-inset mx-auto max-w-[92rem] overflow-hidden rounded-[10px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
-        <div ref={ref} className="fade-in mx-auto mb-16 max-w-6xl">
+    <section id="services" className="services-texture services-inset py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6 lg:px-12">
+        <div ref={ref} className="fade-in mb-16">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">
             What We Offer
           </p>
@@ -87,7 +87,7 @@ export default function Services() {
           </h2>
         </div>
 
-        <div className="mx-auto grid max-w-6xl gap-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <div
               key={service.title}
