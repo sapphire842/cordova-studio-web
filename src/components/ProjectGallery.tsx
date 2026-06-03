@@ -11,7 +11,7 @@ export default function ProjectGallery({
   title: string;
   images: string[];
   captions?: string[];
-  imageRadius?: "5px" | "6px";
+  imageRadius?: "4px" | "5px" | "6px";
 }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const selectedImage =
@@ -68,7 +68,9 @@ export default function ProjectGallery({
                 type="button"
                 onClick={() => setSelectedIndex(i)}
                 className={`group aspect-[4/3] w-full overflow-hidden bg-light-gray text-left ${
-                  imageRadius === "5px"
+                  imageRadius === "4px"
+                    ? "rounded-[4px]"
+                    : imageRadius === "5px"
                     ? "rounded-[5px]"
                     : imageRadius === "6px"
                       ? "rounded-[6px]"
@@ -157,7 +159,9 @@ export default function ProjectGallery({
               src={selectedImage.src}
               alt={`${title} enlarged gallery image`}
               className={`max-h-[82vh] max-w-full object-contain ${
-                imageRadius === "5px"
+                imageRadius === "4px"
+                  ? "rounded-[4px]"
+                  : imageRadius === "5px"
                   ? "rounded-[5px]"
                   : imageRadius === "6px"
                     ? "rounded-[6px]"

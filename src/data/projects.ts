@@ -13,6 +13,7 @@ export interface Project {
   coverImage: string;
   images: string[];
   imageCaptions?: string[];
+  imageRadius?: "4px" | "5px" | "6px";
   pdfUrl?: string;
   parentSlug?: string;
   isCollection?: boolean;
@@ -131,16 +132,41 @@ export const projects: Project[] = [
     year: "2026",
     updatedAt: "2026-04-30",
     summary:
-      "A forthcoming collection focused on layout strategy, circulation, and thoughtful spatial planning for everyday living.",
+      "A residential space planning study focused on room-by-room layout, circulation, and cohesive indoor-outdoor living.",
     description:
-      "This upcoming Space Planning section will feature projects centered on layout studies, circulation improvements, and room-by-room planning strategies. For now, the section serves as a preview of work in development and will be updated as drawings, renderings, and supporting visuals become available.",
+      "This Space Planning project studies how a home can feel clearer, more connected, and easier to live in through thoughtful room planning. The gallery moves through living, dining, family room, and patio moments to show how layout decisions support daily use, gathering, and visual continuity.",
     concept:
-      "A planning-first approach that helps each home feel more intuitive, functional, and balanced before material selections and final styling are introduced.",
+      "A planning-first approach that helps each room feel intuitive, functional, and balanced before material selections and final styling are introduced.",
     approach:
-      "Future case studies will highlight how furniture plans, zoning, movement paths, and proportional relationships shape the experience of a space. The goal is to show how thoughtful planning can unlock clarity, comfort, and better day-to-day use.",
-    coverImage: "",
-    images: [],
-    placeholderLabel: "Under Construction",
+      "The presentation is organized by room type, using consistent image treatment and concise captions to clarify how furniture placement, zoning, movement paths, and proportional relationships shape the experience of each space.",
+    coverImage: "/images/projects/space planning/cover.jpg",
+    images: [
+      "/images/projects/space planning/cover.jpg",
+      "/images/projects/space planning/gallery-1.png",
+      "/images/projects/space planning/gallery-2.jpg",
+      "/images/projects/space planning/gallery-3.jpg",
+      "/images/projects/space planning/gallery-4.png",
+      "/images/projects/space planning/gallery-5.jpg",
+      "/images/projects/space planning/gallery-6.jpg",
+      "/images/projects/space planning/gallery-7.png",
+      "/images/projects/space planning/gallery-8.jpg",
+      "/images/projects/space planning/gallery-9.png",
+      "/images/projects/space planning/gallery-10.jpg",
+    ],
+    imageCaptions: [
+      "Living Room",
+      "Living Room",
+      "Living Room",
+      "Living Room",
+      "Dining Room",
+      "Dining Room",
+      "Dining Room",
+      "Family Room",
+      "Family Room",
+      "Patio",
+      "Patio",
+    ],
+    imageRadius: "4px",
   },
   {
     slug: "academia-portfolio",

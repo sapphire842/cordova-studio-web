@@ -7,8 +7,14 @@ import type { Project } from "@/data/projects";
 export default function ProjectCard({ project }: { project: Project }) {
   const ref = useReveal();
   const imageRadiusClass =
-    project.slug === "staging" || project.parentSlug === "staging"
+    project.imageRadius === "4px"
+      ? "rounded-[4px]"
+      : project.imageRadius === "5px" ||
+          project.slug === "staging" ||
+          project.parentSlug === "staging"
       ? "rounded-[5px]"
+      : project.imageRadius === "6px"
+        ? "rounded-[6px]"
       : "";
   const hasFurnishingRoundedImage =
     project.slug === "furnishing-styling" ||

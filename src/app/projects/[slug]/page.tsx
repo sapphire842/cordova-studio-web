@@ -150,11 +150,12 @@ export default async function ProjectPage({
               images={project.images}
               captions={project.imageCaptions}
               imageRadius={
-                project.parentSlug === "staging"
+                project.imageRadius ??
+                (project.parentSlug === "staging"
                   ? "5px"
                   : project.parentSlug === "furnishing-styling"
                     ? "6px"
-                    : undefined
+                    : undefined)
               }
             />
           )}
