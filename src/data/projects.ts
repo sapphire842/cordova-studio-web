@@ -141,8 +141,8 @@ export const projects: Project[] = [
       "The presentation is organized by room type, using consistent image treatment and concise captions to clarify how furniture placement, zoning, movement paths, and proportional relationships shape the experience of each space.",
     coverImage: "/images/projects/space planning/cover.jpg",
     images: [
-      "/images/projects/space planning/cover.jpg",
       "/images/projects/space planning/gallery-1.png",
+      "/images/projects/space planning/cover.jpg",
       "/images/projects/space planning/gallery-2.jpg",
       "/images/projects/space planning/gallery-3.jpg",
       "/images/projects/space planning/gallery-4.png",
