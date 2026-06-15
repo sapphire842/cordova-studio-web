@@ -252,7 +252,6 @@ export default function Contact() {
                 value="https://thecordovastudio.com/thank-you"
               />
               <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
               {sendCopy ? (
                 <input type="hidden" name="_cc" value={customerEmail} />
               ) : null}
