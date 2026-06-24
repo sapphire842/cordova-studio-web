@@ -320,13 +320,13 @@ export const projects: Project[] = [
     year: "2024",
     updatedAt: "2026-04-30",
     summary:
-      "A bedroom staging collection shaped around calm composition, soft textiles, and approachable residential warmth.",
+      "A bedroom furnishing and styling collection shaped through soft textiles, warm materials, and restful residential composition.",
     description:
-      "The Bedrooms staging collection presents restful residential rooms composed to feel polished, inviting, and easy to imagine living in. Each image highlights a considered balance of bedding, furniture, artwork, lighting, and accessories.",
+      "The Bedrooms collection expands the Furnishing & Styling portfolio with restful residential rooms shaped through layered bedding, proportioned furniture, artwork, lighting, and accessories. Each space is composed to feel polished, personal, and easy to live in.",
     concept:
-      "Bedroom spaces staged as quiet retreats, using softness, scale, and simple finishing details to create a welcoming first impression.",
+      "Bedroom spaces approached as quiet retreats, where softness, scale, and tactile finishing details create a warm and cohesive daily-use environment.",
     approach:
-      "Each bedroom is styled to support a clear focal point while keeping the room open and approachable. Layered bedding, accent pillows, side tables, art, and decor are used to add warmth without overwhelming the space.",
+      "The styling balances practical comfort with refined finishing touches. Layered bedding, accent pillows, side tables, artwork, lighting, and decor are arranged to add depth and warmth without overwhelming the room.",
     coverImage: "/images/projects/staging/bedrooms/cover.JPG",
     images: [
       "/images/projects/staging/bedrooms/cover.JPG",
@@ -355,13 +355,13 @@ export const projects: Project[] = [
     year: "2024",
     updatedAt: "2026-04-30",
     summary:
-      "A living and family room staging collection arranged around comfort, conversation, and inviting everyday flow.",
+      "A living and family room furnishing and styling collection arranged around comfort, conversation, and everyday flow.",
     description:
-      "The Living & Family Rooms staging collection presents gathered residential spaces styled to feel comfortable, polished, and easy to imagine using. Each room balances seating, textiles, tables, art, lighting, and accessories to create a warm first impression.",
+      "The Living & Family Rooms collection brings together gathered residential spaces shaped through comfortable seating, layered textiles, balanced tables, artwork, lighting, and accessories. Each room is styled to feel considered, welcoming, and naturally connected to daily life.",
     concept:
-      "Living spaces staged as approachable gathering rooms, where layout, scale, softness, and finishing details help each room feel welcoming and complete.",
+      "Living spaces designed as approachable gathering rooms, where layout, scale, softness, and finishing details help each space feel complete without becoming overly formal.",
     approach:
-      "Each space is composed to support conversation and visual clarity. Furniture placement anchors the room, while pillows, throws, artwork, greenery, and decorative objects add texture and warmth without overwhelming the architecture.",
+      "The styling begins with furniture placement that supports conversation and visual clarity. Pillows, throws, artwork, greenery, lighting, and decorative objects are layered in to add texture, warmth, and a calm visual rhythm.",
     coverImage: "/images/projects/staging/living & family rooms/cover.jpeg",
     images: [
       "/images/projects/staging/living & family rooms/cover.jpeg",
@@ -385,13 +385,13 @@ export const projects: Project[] = [
     year: "2024",
     updatedAt: "2026-04-30",
     summary:
-      "A dining room staging collection composed around warmth, proportion, and inviting gathering moments.",
+      "A dining room furnishing and styling collection composed around warmth, proportion, and inviting gathering moments.",
     description:
-      "The Dining Rooms staging collection presents residential dining spaces styled to feel polished, welcoming, and ready for gathering. Each image highlights the relationship between table setting, seating, lighting, art, and surrounding architectural details.",
+      "The Dining Rooms collection presents residential dining spaces styled through furniture, table details, lighting, artwork, greenery, and surrounding architectural character. Each room is composed to feel polished, welcoming, and ready for everyday meals or larger gatherings.",
     concept:
-      "Dining rooms staged as memorable gathering spaces, where scale, surface styling, and visual balance help each room feel complete and intentional.",
+      "Dining rooms approached as memorable gathering spaces, where scale, surface styling, and visual balance help each room feel complete and intentional.",
     approach:
-      "Each dining room is arranged to clarify the room's purpose and strengthen its focal points. Tables, chairs, rugs, lighting, artwork, greenery, and decorative accents are composed to add warmth while maintaining an open, natural flow.",
+      "The styling clarifies each room's purpose and strengthens its focal points. Tables, chairs, rugs, lighting, artwork, greenery, and decorative accents are composed to add warmth while maintaining an open, natural flow.",
     coverImage: "/images/projects/staging/dining rooms/cover.JPG",
     images: [
       "/images/projects/staging/dining rooms/cover.JPG",
@@ -416,13 +416,13 @@ export const projects: Project[] = [
     year: "2024",
     updatedAt: "2026-04-30",
     summary:
-      "A miscellaneous staging collection highlighting flexible residential moments, accent spaces, and finishing details.",
+      "A miscellaneous furnishing and styling collection highlighting flexible residential moments, accent spaces, and finishing details.",
     description:
-      "The Miscellaneous staging collection gathers additional residential spaces and styled moments that support the overall story of a home. These images capture flexible rooms, transitional areas, decorative vignettes, and finishing details that help staged interiors feel complete.",
+      "The Miscellaneous collection gathers additional residential spaces and styled moments that support the overall story of a home. These images capture flexible rooms, transitional areas, decorative vignettes, and finishing details shaped through furniture, accessories, art, and texture.",
     concept:
-      "A supporting collection of staged moments where texture, scale, and styling details bring warmth and clarity to the spaces between primary rooms.",
+      "A supporting collection of residential moments where texture, scale, and styling details bring warmth and clarity to the spaces between primary rooms.",
     approach:
-      "Each scene is composed to feel intentional and approachable. Furniture, accessories, art, greenery, and decorative objects are used to add visual rhythm while keeping the presentation clean, cohesive, and easy to understand.",
+      "Each scene is composed to feel intentional and approachable. Furniture, accessories, artwork, greenery, and decorative objects are arranged to add visual rhythm while keeping the overall presentation clean, cohesive, and livable.",
     coverImage: "/images/projects/staging/Miscellaneous/cover.jpeg",
     images: [
       "/images/projects/staging/Miscellaneous/cover.jpeg",
