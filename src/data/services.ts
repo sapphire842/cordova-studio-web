@@ -1,7 +1,7 @@
 export interface Service {
   title: string;
   description: string;
-  icon: "consultation" | "planning" | "palette" | "furniture" | "lighting" | "home";
+  icon: "consultation" | "planning" | "palette" | "furniture";
 }
 
 export const services: Service[] = [
@@ -28,17 +28,5 @@ export const services: Service[] = [
     description:
       "Hand-picked furnishings that balance comfort, proportion, and style — sourced from trusted manufacturers and artisan studios.",
     icon: "furniture",
-  },
-  {
-    title: "Lighting Design",
-    description:
-      "Layered lighting plans that shape atmosphere, highlight architecture, and support the rhythms of daily life.",
-    icon: "lighting",
-  },
-  {
-    title: "Full Home Design",
-    description:
-      "Comprehensive design packages from concept to completion — space planning, material selection, furnishings, and styling for every room.",
-    icon: "home",
   },
 ];

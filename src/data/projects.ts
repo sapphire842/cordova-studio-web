@@ -312,31 +312,11 @@ export const projects: Project[] = [
     parentSlug: "furnishing-styling",
   },
   {
-    slug: "staging",
-    number: "05",
-    title: "Staging",
-    location: "Bay Area, CA",
-    category: "Residential",
-    year: "2024",
-    updatedAt: "2026-04-30",
-    summary:
-      "A collection of staged residential spaces composed to highlight warmth, scale, flow, and everyday livability.",
-    description:
-      "Staging brings together residential rooms styled to help each home feel inviting, balanced, and ready to be experienced. The collection is organized by room type so visitors can move through dining rooms, living and family rooms, bedrooms, and miscellaneous spaces with a clear editorial rhythm.",
-    concept:
-      "A room-by-room staging portfolio that emphasizes comfort, proportion, and visual clarity. Each space is arranged to help potential buyers or clients understand how the room can feel, function, and flow.",
-    approach:
-      "The staging work focuses on balancing furniture placement, textiles, accessories, light, and scale. Each room is presented with a calm, cohesive tone that supports the architecture while helping the space feel complete and livable.",
-    coverImage: "/images/projects/staging/living & family rooms/cover.jpeg",
-    images: ["/images/projects/staging/living & family rooms/cover.jpeg"],
-    isCollection: true,
-  },
-  {
     slug: "staging-bedrooms",
-    number: "05.01",
+    number: "04.03",
     title: "Bedrooms",
     location: "Bay Area, CA",
-    category: "Staging",
+    category: "Furnishing & Styling",
     year: "2024",
     updatedAt: "2026-04-30",
     summary:
@@ -364,14 +344,14 @@ export const projects: Project[] = [
       "/images/projects/staging/bedrooms/gallery-12.JPG",
       "/images/projects/staging/bedrooms/gallery-13.JPG",
     ],
-    parentSlug: "staging",
+    parentSlug: "furnishing-styling",
   },
   {
     slug: "staging-living-family-rooms",
-    number: "05.02",
+    number: "04.04",
     title: "Living & Family Rooms",
     location: "Bay Area, CA",
-    category: "Staging",
+    category: "Furnishing & Styling",
     year: "2024",
     updatedAt: "2026-04-30",
     summary:
@@ -394,14 +374,14 @@ export const projects: Project[] = [
       "/images/projects/staging/living & family rooms/gallery-7.JPG",
       "/images/projects/staging/living & family rooms/gallery-8.JPG",
     ],
-    parentSlug: "staging",
+    parentSlug: "furnishing-styling",
   },
   {
     slug: "staging-dining-rooms",
-    number: "05.03",
+    number: "04.05",
     title: "Dining Rooms",
     location: "Bay Area, CA",
-    category: "Staging",
+    category: "Furnishing & Styling",
     year: "2024",
     updatedAt: "2026-04-30",
     summary:
@@ -425,14 +405,14 @@ export const projects: Project[] = [
       "/images/projects/staging/dining rooms/gallery-8.JPG",
       "/images/projects/staging/dining rooms/gallery-9.JPG",
     ],
-    parentSlug: "staging",
+    parentSlug: "furnishing-styling",
   },
   {
     slug: "staging-miscellaneous",
-    number: "05.04",
+    number: "04.06",
     title: "Miscellaneous",
     location: "Bay Area, CA",
-    category: "Staging",
+    category: "Furnishing & Styling",
     year: "2024",
     updatedAt: "2026-04-30",
     summary:
@@ -461,7 +441,7 @@ export const projects: Project[] = [
       "/images/projects/staging/Miscellaneous/gallery-13.JPG",
       "/images/projects/staging/Miscellaneous/gallery-14.JPG",
     ],
-    parentSlug: "staging",
+    parentSlug: "furnishing-styling",
   },
 ];
 

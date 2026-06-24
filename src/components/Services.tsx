@@ -38,22 +38,6 @@ function ServiceIcon({ type }: { type: Service["icon"] }) {
         <path d="M17.5 17.5v2" />
       </>
     ),
-    lighting: (
-      <>
-        <path d="M12 4.5v3" />
-        <path d="M7.5 9.5a4.5 4.5 0 0 1 9 0v1h-9z" />
-        <path d="M9 13.5h6" />
-        <path d="M10 16h4" />
-        <path d="M12 18.5v1" />
-      </>
-    ),
-    home: (
-      <>
-        <path d="M4.5 11.5 12 5l7.5 6.5" />
-        <path d="M6.5 10.5v9h11v-9" />
-        <path d="M10 19.5v-5h4v5" />
-      </>
-    ),
   };
 
   return (
