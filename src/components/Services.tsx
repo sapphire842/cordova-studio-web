@@ -71,7 +71,7 @@ export default function Services() {
           </h2>
         </div>
 
-        <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-1 md:grid-cols-2">
           {services.map((service) => (
             <div
               key={service.title}
